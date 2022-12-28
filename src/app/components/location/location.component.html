@@ -1,0 +1,10 @@
+<div class="block-location">
+  <p>id:{{location.id}}</p>
+  <div><button (click)="submit()">name:{{location.name}}</button></div>
+  <h4>type:{{location.type}}</h4>
+  <h5>dimension:{{location.dimension}}</h5>
+  <div *ngFor="let residents of location.residents">residents:<a href="{{residents}}">{{residents}}</a></div>
+  <h4>url:<a href="{{location.url">{{location.url}}</a></h4>
+  <p>created:{{location.created}}</p>
+  <hr/>
+</div>
