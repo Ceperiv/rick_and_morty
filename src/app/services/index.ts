@@ -1,3 +1,5 @@
+export * from './loading.service'
+export * from './multiple.components.service'
 export * from './single.component.service'
 export * from './total.service'
 export * from './resolvers/index'

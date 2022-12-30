@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainLayoutsComponent} from "./layouts"
 import {
   CharactersComponent,
-  CharacterSingleComponent,
+  CharacterSingleComponent, CharactersMultipleComponent,
   EpisodesComponent,
   EpisodeSingleComponent,
   LocationsComponent, LocationSingleComponent
@@ -22,6 +22,7 @@ const routes: Routes = [
         component: CharactersComponent,
       },
       {path: 'characters/:id', component: CharacterSingleComponent},
+      {path: 'characters/multiple/:ids', component: CharactersMultipleComponent},
       {
         path: 'episodes',
         runGuardsAndResolvers: 'paramsOrQueryParamsChange',

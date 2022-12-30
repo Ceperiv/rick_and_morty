@@ -1,2 +1,5 @@
-<app-episode *ngFor="let episode of episodes" [episode]="episode" ></app-episode>
+<div class="wrap_episodes">
+  <app-episode *ngFor="let episode of episodes" [episode]="episode"></app-episode>
+</div>
+
 <app-pagination [total_pages]="total_pages"></app-pagination>

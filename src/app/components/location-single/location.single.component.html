@@ -1,6 +1,15 @@
-<div>
-  <div *ngIf="!error; else pageError" ><h1></h1>{{singleComponent.id}}.) {{singleComponent.name}}</div>
+<div class="wrap_single_location" *ngIf="!error; else pageError"><h1>{{singleComponent.name}}</h1>
+  <h3>type: {{singleComponent.type}}</h3>
+  <h4>{{singleComponent.dimension}}</h4>
+  <div><h2>residents:</h2>
+    <div *ngFor="let url of residentsUrls">
+      <a href="{{url}}">character - {{url.split('/').splice(-1).toString()}}</a>
+    </div>
+  </div>
+  <p>created: {{singleComponent.created}}</p>
+  <hr/>
 </div>
+
 
 <ng-template #pageError>
   <h1>{{error.message}}:(</h1>

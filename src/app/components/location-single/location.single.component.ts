@@ -13,6 +13,7 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
   singleComponent: ILocation;
   error: IPageError;
   id: number;
+  residentsUrls: Array<string> = []
 
   constructor(private singleComponentService: SingleComponentService,
               private activatedRoute: ActivatedRoute,
@@ -40,6 +41,10 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
+    this.singleComponent.residents.map(value => {
+      const characterId = value.split('/').splice(-1).toString()
+      const characterUrl = `/characters/${characterId ? characterId : ''}`
+      this.residentsUrls.push(characterUrl)
+    })
   }
 }

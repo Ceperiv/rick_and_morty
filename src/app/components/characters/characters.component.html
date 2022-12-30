@@ -1,4 +1,12 @@
-<app-character *ngFor="let character of characters" [character]="character"></app-character>
-<p>characters work</p>
-<app-pagination [total_pages]="total_pages"></app-pagination>
+<div class="wrapper">
+  <div class="main">
+    <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
+    <app-characters-filter></app-characters-filter>
+    <div class="wrap_characters">
+      <app-character *ngFor="let character of characters" [character]="character"></app-character>
+    </div>
+  </div>
+  <app-pagination class="pagination" [total_pages]="total_pages"></app-pagination>
+</div>
+
 

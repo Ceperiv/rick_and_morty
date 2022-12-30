@@ -1,7 +1,17 @@
-a{
-  padding: 5px;
-  margin-left: 20px;
-}
-.active{
-  color: brown;
+.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 40px;
+  background: #b27241;
+
+  a {
+    padding: 5px;
+    margin-left: 20px;
+  }
+
+  .active {
+    color: brown;
+  }
+
 }

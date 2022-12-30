@@ -21,6 +21,9 @@ import {Error404Component} from './components';
 import {CharacterSingleComponent} from './components';
 import {EpisodeSingleComponent} from "./components";
 import {LocationSingleComponent} from "./components";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {CharactersFilterComponent} from './components';
+import { CharactersMultipleComponent } from './components';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,8 @@ import {LocationSingleComponent} from "./components";
     CharacterSingleComponent,
     EpisodeSingleComponent,
     LocationSingleComponent,
+    CharactersFilterComponent,
+    CharactersMultipleComponent,
   ],
   imports: [
     HttpClientModule,
@@ -46,7 +51,8 @@ import {LocationSingleComponent} from "./components";
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterOutlet,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

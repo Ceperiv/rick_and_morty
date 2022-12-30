@@ -1,3 +1,5 @@
-<app-location *ngFor="let location of locations" [location]="location"></app-location>
+<div class="wrap_locations">
+  <app-location *ngFor="let location of locations" [location]="location"></app-location>
+</div>
 
 <app-pagination [total_pages]="total_pages"></app-pagination>

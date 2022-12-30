@@ -1,6 +1,12 @@
-<div>
-  <div *ngIf="!error; else pageError" ><h1></h1>{{singleComponent.id}}.) {{singleComponent.name}}</div>
+<div class="wrap_single_episode" *ngIf="!error; else pageError">
+  <h1>{{singleComponent.name}}</h1>
+  <h3>air date:{{singleComponent.air_date}}</h3>
+  <p>created: {{singleComponent.created}}</p>
+  <div *ngFor="let url of characterUrls">
+    <a href="{{url}}">Character {{url.split('/').splice(-1).toString()}}</a>
+  </div>
 </div>
+
 
 <ng-template #pageError>
   <h1>{{error.message}}:(</h1>

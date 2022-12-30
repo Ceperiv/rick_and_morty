@@ -14,6 +14,7 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   singleComponent: IEpisode;
   error: IPageError;
   id: number;
+  characterUrls: Array<string> = []
 
   constructor(private singleComponentService: SingleComponentService,
               private activatedRoute: ActivatedRoute,
@@ -41,6 +42,10 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
+    this.singleComponent.characters.map(value => {
+      const characterId = value.split('/').splice(-1).toString()
+      const characterUrl = `/characters/${characterId ? characterId : ''}`
+      this.characterUrls.push(characterUrl)
+    })
   }
 }
