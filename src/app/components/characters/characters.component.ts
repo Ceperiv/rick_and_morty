@@ -33,12 +33,12 @@ export class CharactersComponent implements OnInit {
   }
 
   selected() {
+    console.log(this.router)
     let multipleIds = this.multipleComponentsService.getIds()
     if (multipleIds.length === 1) {
-      const url = this.router.url;
-      this.router.navigate([`${url}/${multipleIds.toString()}`]);
+      this.router.navigate([`characters/${multipleIds.toString()}`]);
     } else {
-      const multipleUrl = `${this.router.url}/multiple/${multipleIds}`;
+      const multipleUrl = `characters/multiple/${multipleIds}`;
       this.router.navigate([multipleUrl]);
     }
   };
