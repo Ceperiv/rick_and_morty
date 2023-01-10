@@ -1,14 +1,19 @@
-<div class="block_character">
+<div *ngIf="!error;else pageError" class="block_character">
   <div class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
     <div class="shadow" (click)="submit()"></div>
     <h5>{{character.created.split('T').splice(-2, 1).toString()}}</h5>
   </div>
   <div class="name">
-    <a routerLink="" (click)="submit()"><h2>{{character.name}}</h2></a>
-    <label (click)="selected()">
+    <a (click)="submit()"><h2>{{character.name}}</h2></a>
+    <label (click)="select()">
       <input class="checkbox {{classActive && 'active'}}" type="checkbox" [checked]="classActive">
     </label>
   </div>
 </div>
+
+<ng-template #pageError>
+  <h1>{{error.message}}:(</h1>
+  <h4> error: {{error.status}}</h4>
+</ng-template>
 

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CharacterComponent} from './components';
 import {CharactersComponent} from './components';
 import {HeaderComponent} from './components';
@@ -23,7 +23,8 @@ import {EpisodeSingleComponent} from "./components";
 import {LocationSingleComponent} from "./components";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {CharactersFilterComponent} from './components';
-import { CharactersMultipleComponent } from './components';
+import {CharactersMultipleComponent} from './components';
+import {FooterComponent} from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CharactersMultipleComponent } from './components';
     LocationSingleComponent,
     CharactersFilterComponent,
     CharactersMultipleComponent,
+    FooterComponent,
   ],
   imports: [
     HttpClientModule,

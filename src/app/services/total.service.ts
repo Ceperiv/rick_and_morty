@@ -35,8 +35,6 @@ export class TotalService {
     locations: (id: number): Observable<ILocation> => {
       return this.httpClient.get<ILocation>(urls.locations + '/' + id)
     }
-  }
-
-
+  };
 }
 

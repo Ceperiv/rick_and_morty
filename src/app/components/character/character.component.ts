@@ -1,12 +1,8 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {
-  MultipleComponentsService,
-  SingleComponentService,
-  TotalService
-} from "../../services";
-import {ICharacter} from "../../interfaces";
+import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
+import {ICharacter, IPageError} from "../../interfaces";
 
 @Component({
   selector: 'app-character',
@@ -24,24 +20,32 @@ export class CharacterComponent implements OnInit, AfterViewInit {
   episodeUrls: Array<string> = [];
   selectedId: number | undefined;
   classActive: boolean;
+  error: IPageError;
 
   constructor(private totalService: TotalService,
               private router: Router,
               private singleComponentService: SingleComponentService,
-              private multipleComponentsService: MultipleComponentsService) {
-  };
-
-  submit(): void {
-    this.id = this.character.id;
-    this.totalService.getById.characters(this.id).subscribe((value) => {
-        this.singleCharacter = value;
-        this.singleComponentService.setSingleInfo.character(this.singleCharacter);
-        this.router.navigate([`characters/${this.id}`]);
-      }
-    );
+              private multipleComponentsService: MultipleComponentsService,
+              private checkboxService: CheckboxService) {
   };
 
   ngOnInit(): void {
+    this.checkboxService.isChecked().subscribe(value => {
+      if (value === false) {
+        this.selectedId = undefined;
+        this.multipleComponentsService.removeId(this.character.id);
+        this.multipleComponentsService.cleanIds()
+        this.classActive = value
+      }
+    });
+
+    this.checkboxService.isAllChecked().subscribe(value => {
+      if (value === true) {
+        this.selectedId = this.character.id;
+        this.classActive = value
+      }
+    });
+
     const originId = this.character.origin.url.split('/').slice(-1).toString();
     const locationId = this.character.location.url.split('/').slice(-1).toString();
 
@@ -49,10 +53,24 @@ export class CharacterComponent implements OnInit, AfterViewInit {
     this.locationUrl = `/locations/${locationId}`;
   };
 
-  selected() {
-    const id = this.character.id;
+  submit(): void {
+    this.id = this.character.id;
+    this.totalService.getById.characters(this.id).subscribe(
+      {
+        next: (value) => {
+          this.singleCharacter = value;
+          this.singleComponentService.setSingleInfo.character(this.singleCharacter);
+          this.router.navigate([`characters/${this.id}`]);
+        },
+        error: (e) => this.error = {message: e.message, status: e.status}
+      }
+    );
+  };
 
+  select() {
+    const id = this.character.id;
     if (!this.selectedId) {
+      this.checkboxService.enable.isChecked()
       this.selectedId = id;
       this.classActive = true;
       this.multipleComponentsService.setId(this.selectedId);
@@ -60,6 +78,8 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       this.classActive = false;
       this.selectedId = undefined;
       this.multipleComponentsService.removeId(id);
+      this.checkboxService.disable.isAllChecked()
+
     }
   };
 
@@ -68,6 +88,7 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       if (value === this.character.id) {
         this.selectedId = value;
         this.classActive = true;
+        this.checkboxService.enable.isChecked()
       }
     });
   };

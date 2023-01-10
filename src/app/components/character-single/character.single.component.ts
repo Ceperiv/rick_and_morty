@@ -34,7 +34,7 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
           next: (value) => {
             this.singleComponent = value;
           },
-          error: (error) => this.error = {message: error.error.error, status: error.status}
+          error: (e) => this.error = {message: e.error.error, status: e.status}
         });
       }
     });

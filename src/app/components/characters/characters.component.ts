@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs";
 
 import {ICharacter, IPaginated} from "../../interfaces";
-import {MultipleComponentsService} from "../../services";
+import {CheckboxService, MultipleComponentsService} from "../../services";
 
 @Component({
   selector: 'app-characters',
@@ -11,15 +11,17 @@ import {MultipleComponentsService} from "../../services";
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  characters: ICharacter[];
+  characters: ICharacter[] = [];
   total_pages: number;
   selectedCharactersId: number;
   isVisible: boolean = false;
+  allSelectedIds:Array<number> = []
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
-              private router: Router) {
-  }
+              private router: Router,
+              private checkboxService: CheckboxService) {
+  };
 
   ngOnInit(): void {
     this.activatedRoute.data.pipe(
@@ -30,16 +32,31 @@ export class CharactersComponent implements OnInit {
     })
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
-  }
+  };
 
   selected() {
-    console.log(this.router)
     let multipleIds = this.multipleComponentsService.getIds()
     if (multipleIds.length === 1) {
-      this.router.navigate([`characters/${multipleIds.toString()}`]);
+      const url = `characters/${multipleIds.toString()}`
+      this.router.navigate([url]);
     } else {
-      const multipleUrl = `characters/multiple/${multipleIds}`;
+      const multipleUrl = `characters/multiple/${multipleIds.toString()}`;
       this.router.navigate([multipleUrl]);
+      this.checkboxService.disable.isAllChecked()
     }
+  };
+
+  cleanList() {
+    this.multipleComponentsService.cleanIds()
+    this.checkboxService.disable.isChecked()
+    this.isVisible = false
+    this.checkboxService.disable.isAllChecked()
+  };
+
+  selectAll() {
+    this.checkboxService.enable.isAllChecked()
+    this.multipleComponentsService.cleanIds()
+    this.characters.map(value => this.allSelectedIds.push(value.id))
+    this.multipleComponentsService.setManyIds(this.allSelectedIds)
   };
 }

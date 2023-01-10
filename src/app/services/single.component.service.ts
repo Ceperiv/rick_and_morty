@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
 
 import {ICharacter, IEpisode, ILocation} from "../interfaces";
 
@@ -21,14 +20,11 @@ export class SingleComponentService {
     location: (singleLocation: ILocation): void => {
       this._singleLocation = singleLocation
     },
-
-  }
+  };
 
   getSingleInfo = {
     character: (): ICharacter => this._singleCharacter,
     episode: (): IEpisode => this._singleEpisode,
     location: (): ILocation => this._singleLocation,
-  }
-
-
+  };
 }

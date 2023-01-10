@@ -1,3 +1,10 @@
-<div *ngFor="let character of characters">
-  <h2>{{character.name}}</h2>
+<div class="character_multiple_container" *ngIf="!error;else pageError">
+  <div *ngFor="let character of characters">
+    <h2>{{character.name}}</h2>
+  </div>
 </div>
+
+<ng-template #pageError>
+  <h1>{{error.message}}:(</h1>
+  <h4> error: {{error.status}}</h4>
+</ng-template>

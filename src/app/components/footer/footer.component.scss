@@ -1,0 +1,16 @@
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  margin: 10px;
+  color: silver;
+
+  a {
+    color: gray;
+    font-style: italic;
+  }
+}
+
+.img {
+  width: 100px;
+}

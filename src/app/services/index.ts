@@ -1,3 +1,4 @@
+export * from './checkbox.service'
 export * from './loading.service'
 export * from './multiple.components.service'
 export * from './single.component.service'
