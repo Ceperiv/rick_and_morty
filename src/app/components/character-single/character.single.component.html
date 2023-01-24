@@ -45,7 +45,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="episodes_url" *ngFor="let episodeUrl of episodeUrls">
-          <a routerLink="episodes/{{episodeUrl}}">
+          <a routerLink="/episodes/{{episodeUrl.split('/').splice(-1)}}">
             <h4>Episode - {{episodeUrl.split('/').slice(-1)}}</h4>
           </a>
         </div>
