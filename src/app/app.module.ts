@@ -37,6 +37,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {EpisodesFilterComponent} from "./components";
 import { EpisodesMultipleComponent } from './components/episodes-multiple/episodes.multiple.component';
 import {MatMenuModule} from "@angular/material/menu";
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -61,25 +62,26 @@ import {MatMenuModule} from "@angular/material/menu";
     EpisodesFilterComponent,
     EpisodesMultipleComponent,
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        RouterOutlet,
-        MatPaginatorModule,
-        MatProgressBarModule,
-        ReactiveFormsModule,
-        MatCheckboxModule,
-        MatTreeModule,
-        MatIconModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatExpansionModule,
-        MatMenuModule
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    RouterOutlet,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatStepperModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

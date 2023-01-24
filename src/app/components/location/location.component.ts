@@ -12,10 +12,8 @@ import {SingleComponentService, TotalService} from "../../services";
 export class LocationComponent {
   @Input()
   location:ILocation
-
   singleLocation: ILocation
   id: number
-  panelOpenState: boolean = false;
 
   constructor(private router:Router,
               private singleComponentService:SingleComponentService,
@@ -26,7 +24,6 @@ export class LocationComponent {
     this.id = this.location.id
     this.totalService.getById.location(this.id).subscribe((value) => {
         this.singleLocation = value
-        console.log(this.singleLocation, this.id)
         this.singleComponentService.setSingleInfo.location(this.singleLocation)
         this.router.navigate([`locations/${this.id}`])
       }

@@ -17,7 +17,6 @@ import {ICharacter, IPageError} from "../../interfaces";
 export class CharacterComponent implements OnInit, AfterViewInit {
   @Input()
   character: ICharacter;
-  singleCharacter: ICharacter;
   id: number;
   originUrl: string;
   locationUrl: string;
@@ -70,16 +69,10 @@ export class CharacterComponent implements OnInit, AfterViewInit {
 
   submit(): void {
     this.id = this.character.id;
-    this.totalService.getById.character(this.id).subscribe(
-      {
-        next: (value) => {
-          this.singleCharacter = value;
-          this.singleComponentService.setSingleInfo.character(this.singleCharacter);
-          this.router.navigate([`characters/${this.id}`]);
-        },
-        error: (e) => this.error = {message: e.message, status: e.status}
-      }
-    );
+    this.singleComponentService.setSingleInfo.character(this.character);
+    this.router.navigate([`characters/${this.id}`]);
+
+
   };
 
   select() {

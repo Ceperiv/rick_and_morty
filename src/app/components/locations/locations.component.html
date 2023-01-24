@@ -1,7 +1,18 @@
 <div class="wrap_locations">
-  <mat-accordion>
-  <app-location *ngFor="let location of locations" [location]="location"></app-location>
-  </mat-accordion>
+  <mat-stepper orientation="vertical">
+  <app-location *ngFor="let location of locations" [location]="location">
+    <mat-step>
+      <ng-template matStepLabel>
+        <h1>{{location.name}}</h1>
+      </ng-template>
+      <ng-template matStepContent>
+        <h3>type: {{location.type}}</h3>
+        <h4>{{location.dimension}}</h4>
+        <p>created: {{location.created}}</p>
+      </ng-template>
+    </mat-step>
+  </app-location>
+  </mat-stepper>
 </div>
 
 <app-pagination [total_pages]="total_pages"></app-pagination>

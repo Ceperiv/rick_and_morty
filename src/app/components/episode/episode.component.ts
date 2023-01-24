@@ -9,7 +9,7 @@ import {CheckboxService, MultipleComponentsService, SingleComponentService, Tota
   templateUrl: './episode.component.html',
   styleUrls: ['./episode.component.scss']
 })
-export class EpisodeComponent implements OnInit ,AfterViewInit {
+export class EpisodeComponent implements OnInit, AfterViewInit {
   @Input()
   episode: IEpisode;
 
@@ -25,7 +25,6 @@ export class EpisodeComponent implements OnInit ,AfterViewInit {
               private checkboxService: CheckboxService,
               private multipleComponentsService: MultipleComponentsService) {
   };
-
 
 
   ngOnInit(): void {
@@ -48,12 +47,8 @@ export class EpisodeComponent implements OnInit ,AfterViewInit {
 
   submit(): void {
     this.id = this.episode.id
-    this.totalService.getById.episode(this.id).subscribe((value) => {
-        this.singleEpisode = value
-        this.singleComponentService.setSingleInfo.episode(this.singleEpisode)
-        this.router.navigate([`episodes/${this.id}`])
-      }
-    );
+    this.singleComponentService.setSingleInfo.episode(this.episode)
+    this.router.navigate([`episodes/${this.id}`])
   }
 
   select() {
