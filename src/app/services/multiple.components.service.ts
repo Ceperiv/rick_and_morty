@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 import {urls} from "../configs";
-import {ICharacter} from "../interfaces";
+import {ICharacter, IEpisode} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +53,10 @@ export class MultipleComponentsService {
 
   getComponentsById = {
     characters: (): Observable<ICharacter[]> => {
-      return this.httpClient.get<ICharacter[]>(urls.characters + '/' + this.selectedIds.toString())
+      return this.httpClient.get<ICharacter[]>(urls.characters + '/' + this.selectedIds)
+    },
+    episodes: (): Observable<IEpisode[]> => {
+      return this.httpClient.get<IEpisode[]>(urls.episodes + '/' + this.selectedIds)
     }
   };
 }

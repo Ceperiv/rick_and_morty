@@ -1,0 +1,92 @@
+.wrap_episodes {
+  width: 100%;
+
+  .main_content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .select {
+      position: fixed;
+      right: 3%;
+      top: 50%;
+      width: 50px;
+      height: 50px;
+      z-index: 10;
+      border: #b27241 1px solid;
+      border-radius: 50%;
+      background: #b76225;
+      color: silver;
+      box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px, rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
+      transition: .3s;
+    }
+
+    .select_all {
+      top: 40%;
+      background: #332f2f;
+      color: cadetblue;
+    }
+
+    .cleanList {
+      top: 60%;
+      background: #332f2f;
+      color: brown;
+    }
+
+    .select:hover {
+      cursor: pointer;
+      background: #814110;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(55deg);
+      transition: 2s;
+    }
+
+    .select_all:hover {
+      transform: rotate3d(10, 10, 20, 40deg);
+    }
+
+    .cleanList:hover {
+      transform: rotate3d(10, 10, 20, -40deg);
+      font-weight: 800;
+    }
+
+    .select:active {
+      transform: rotate(90deg);
+      background: #b27241;
+      color: #814110;
+      transition: .1s;
+    }
+
+    .select_all:active {
+      transform: rotate3d(40, 40, 40, 70deg);
+    }
+
+    .cleanList:active {
+      transform: rotate3d(40, 40, 40, 160deg);
+    }
+  }
+
+  .wrap_episodes {
+    width:85%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+}
+.pagination{
+  margin-top: 20px;
+}
+
+app-episode {
+  width: 48%;
+  margin: 5px 1%;
+}
+
+app-episodes-filter {
+  width: 15%;
+}
+
+
+

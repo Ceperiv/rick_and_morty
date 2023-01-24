@@ -1,7 +1,39 @@
 <div class="block_episode">
-  <h1><a routerLink="" (click)="submit()">{{episode.name}}</a></h1>
-  <h2>{{episode.episode}}</h2>
-  <div><h3>air date:{{episode.air_date}}</h3></div>
-  <p>created:{{episode.created}}</p>
-  <hr/>
+
+  <mat-accordion>
+    <mat-expansion-panel style="background: #814110; padding: 0"
+                         (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header style="min-height: 100px; padding: 20px">
+        <mat-panel-title>
+          <h3><a (click)="submit()">{{episode.name}}</a></h3>
+        </mat-panel-title>
+        <mat-panel-description style="padding-left: 10%">
+          <div><img *ngIf="panelOpenState" src="assets/img/common/R_n_M.jpg" width="150px" alt="">
+            <span *ngIf="!panelOpenState"><i>episode:</i>{{episode.episode}}</span>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <button class="mat_button" mat-button [matMenuTriggerFor]="episodeName"><h2>{{episode.episode}}</h2></button>
+      <mat-menu #episodeName="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="episodeCharacters">Characters</button>
+      </mat-menu>
+      <mat-menu #episodeCharacters="matMenu">
+        <div *ngFor="let character of episode.characters">
+          <button routerLink="/characters/{{character.split('/').splice(-1)}}"
+                  mat-menu-item>Character {{character.split('/').splice(-1)}}
+          </button>
+        </div>
+      </mat-menu>
+
+      <h3 class="padding_top">air date:{{episode.air_date}}</h3>
+      <p>created:{{episode.created}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <label (click)="select()">
+    <input class="checkbox {{classActive && 'active'}}" type="checkbox" [checked]="classActive">
+  </label>
+
 </div>

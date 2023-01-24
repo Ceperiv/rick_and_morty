@@ -3,7 +3,15 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 import {urls} from "../configs";
-import {ICharacter, IEpisode, ILocation, IPaginated} from "../interfaces";
+import {
+  ICharacter,
+  ICharacterFilter,
+  IEpisode,
+  IEpisodeFilter,
+  ILocation, ILocationFilter,
+  IPaginated,
+  IQueryParams
+} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -14,25 +22,25 @@ export class TotalService {
   }
 
   getAll = {
-    characters: (page = 1): Observable<IPaginated<ICharacter>> => {
-      return this.httpClient.get<IPaginated<ICharacter>>(urls.characters, {params: {page}})
+    characters: (params: ICharacterFilter | any): Observable<IPaginated<ICharacter>> => {
+      return this.httpClient.get<IPaginated<ICharacter>>(urls.characters, {params})
     },
-    episodes: (page = 1): Observable<IPaginated<IEpisode>> => {
-      return this.httpClient.get<IPaginated<IEpisode>>(urls.episodes, {params: {page}})
+    episodes: (params: IEpisodeFilter | any): Observable<IPaginated<IEpisode>> => {
+      return this.httpClient.get<IPaginated<IEpisode>>(urls.episodes, {params})
     },
-    locations: (page = 1): Observable<IPaginated<ILocation>> => {
-      return this.httpClient.get<IPaginated<ILocation>>(urls.locations, {params: {page}})
+    locations: (params: ILocationFilter | any): Observable<IPaginated<ILocation>> => {
+      return this.httpClient.get<IPaginated<ILocation>>(urls.locations, {params})
     }
   };
 
   getById = {
-    characters: (id: number): Observable<ICharacter> => {
+    character: (id: number): Observable<ICharacter> => {
       return this.httpClient.get<ICharacter>(urls.characters + '/' + id)
     },
-    episodes: (id: number): Observable<IEpisode> => {
+    episode: (id: number): Observable<IEpisode> => {
       return this.httpClient.get<IEpisode>(urls.episodes + '/' + id)
     },
-    locations: (id: number): Observable<ILocation> => {
+    location: (id: number): Observable<ILocation> => {
       return this.httpClient.get<ILocation>(urls.locations + '/' + id)
     }
   };

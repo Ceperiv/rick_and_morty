@@ -6,15 +6,16 @@ import {IEpisode} from "../../interfaces";
 import {IPageError} from "../../interfaces";
 
 @Component({
-  selector: 'app-character-single',
-  templateUrl: './episode,single.component.html',
+  selector: 'app-episode-single',
+  templateUrl: './episode.single.component.html',
   styleUrls: ['./episode.single.component.scss']
 })
 export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   singleComponent: IEpisode;
   error: IPageError;
   id: number;
-  characterUrls: Array<string> = []
+  characterUrls: Array<string> = [];
+  panelOpenState: boolean = false;
 
   constructor(private singleComponentService: SingleComponentService,
               private activatedRoute: ActivatedRoute,
@@ -29,7 +30,7 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
       this.id = this.singleComponent?.id
 
       if (!this.id) {
-        this.totalService.getById.episodes(id).subscribe({
+        this.totalService.getById.episode(id).subscribe({
 
           next: (value) => {
             this.singleComponent = value

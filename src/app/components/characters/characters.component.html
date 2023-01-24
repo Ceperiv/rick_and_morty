@@ -1,11 +1,12 @@
-<div class="wrapper">
-  <div class="main">
+
+<div class="wrap_characters">
+  <div class="main_content">
     <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
     <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
     <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
     <app-characters-filter></app-characters-filter>
     <div class="wrap_characters">
-      <app-character *ngFor="let character of characters" [character]="character"></app-character>
+      <app-character  *ngFor="let character of characters" [character]="character"></app-character>
     </div>
   </div>
   <app-pagination class="pagination" [total_pages]="total_pages"></app-pagination>

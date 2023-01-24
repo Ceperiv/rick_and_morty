@@ -1,6 +1,55 @@
-<div class="character_multiple_container" *ngIf="!error;else pageError">
-  <div *ngFor="let character of characters">
-    <h2>{{character.name}}</h2>
+<div class="character_multiple_wrap" *ngIf="!error;else pageError">
+  <div class="character_multiple_container" *ngFor="let character of characters">
+    <div class="main_single_character">
+      <div class="image_info">
+        <h1>{{character.name}}</h1>
+        <div class="image">
+          <a routerLink="/characters/{{character.id}}" title="{{character.name}}">
+            <img src="{{character.image}}" alt="img:{{character.name}}"/>
+          </a>
+          <h4>{{character.name}}</h4>
+          <h5>created:{{character.created}}</h5>
+        </div>
+      </div>
+      <div class="single_character_info" *ngIf="character.origin.name !== 'unknown'">
+        <h2>Origin name:
+          <a routerLink="/locations/{{character.origin.url.split('/').slice(-1).toString()}}">
+            <h4>{{character.origin.name}}</h4>
+          </a>
+        </h2>
+        <h2>Location name:
+          <a routerLink="/locations/{{character.location.url.split('/').slice(-1).toString()}}">
+            <h4>{{character.location.name}}</h4>
+          </a>
+        </h2>
+        <p>species:{{character.species}}</p>
+        <p *ngIf="character.status !== 'unknown'">status:{{character.status}}</p>
+        <p *ngIf="character.type">type:{{character.type}} </p>
+        <p>gender:{{character.gender}}</p>
+      </div>
+    </div>
+
+    <div class="character_episodes">
+      <mat-accordion>
+        <mat-expansion-panel style="background: #282828"
+                             (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title style="padding-top: 15px">
+              <h2>Episodes</h2>
+            </mat-panel-title>
+            <mat-panel-description>
+              <i>click to {{panelOpenState ? 'close' : 'open'}}</i>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="episodes_url" *ngFor="let episodeUrl of character.episode">
+            <a routerLink="/episodes/{{episodeUrl.split('/').slice(-1).toString()}}">
+              <h4>Episode - {{episodeUrl.split('/').slice(-1).toString()}}</h4>
+            </a>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
 </div>
 

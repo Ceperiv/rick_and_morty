@@ -24,7 +24,19 @@ import {LocationSingleComponent} from "./components";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {CharactersFilterComponent} from './components';
 import {CharactersMultipleComponent} from './components';
-import {FooterComponent} from './components/footer/footer.component';
+import {FooterComponent} from './components';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatTreeModule} from "@angular/material/tree";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {EpisodesFilterComponent} from "./components";
+import { EpisodesMultipleComponent } from './components/episodes-multiple/episodes.multiple.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -46,16 +58,28 @@ import {FooterComponent} from './components/footer/footer.component';
     CharactersFilterComponent,
     CharactersMultipleComponent,
     FooterComponent,
+    EpisodesFilterComponent,
+    EpisodesMultipleComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    RouterOutlet,
-    MatPaginatorModule,
-    MatProgressBarModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        RouterOutlet,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        ReactiveFormsModule,
+        MatCheckboxModule,
+        MatTreeModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatExpansionModule,
+        MatMenuModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

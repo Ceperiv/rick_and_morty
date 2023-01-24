@@ -1,8 +1,8 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 import {MultipleComponentsService} from "../../services";
 import {ICharacter, IPageError} from "../../interfaces";
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-characters-multiple',
@@ -11,8 +11,9 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CharactersMultipleComponent implements OnInit, AfterContentInit {
   characters: ICharacter[];
-  ids: Array<number> = []
-  error: IPageError
+  ids: Array<number> = [];
+  error: IPageError;
+  panelOpenState: boolean = false;
 
   constructor(private multipleComponentsService: MultipleComponentsService,
               private activatedRoute: ActivatedRoute) {
@@ -46,7 +47,6 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
         this.multipleComponentsService.getComponentsById.characters()
           .subscribe(value => this.characters = value)
       }
-
     })
   }
 }

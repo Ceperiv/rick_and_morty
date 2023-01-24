@@ -1,0 +1,40 @@
+.wrap_single_episode {
+  width: 100%;
+  display: flex;
+
+  a {
+    color: gray;
+  }
+
+  .single_episode_info_1{
+    width: 30%;
+    padding: 50px 5px;
+  }
+  .single_episode_info_2{
+    width: 69%;
+    padding: 50px 5px;
+  }
+
+  .buttons_block{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+  .characters_url {
+    border: #282828 1px solid;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 0 2px;
+    button{
+      width: 200px;
+      background: #b27241;
+    }
+
+  }
+
+::ng-deep.mat-expansion-panel-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

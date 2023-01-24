@@ -2,7 +2,7 @@
   <div class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
     <div class="shadow" (click)="submit()"></div>
-    <h5>{{character.created.split('T').splice(-2, 1).toString()}}</h5>
+    <h5>{{character.created.split('T').splice(-2, 1)}}</h5>
   </div>
   <div class="name">
     <a (click)="submit()"><h2>{{character.name}}</h2></a>

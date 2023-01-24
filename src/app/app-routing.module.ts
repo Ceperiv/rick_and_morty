@@ -10,6 +10,7 @@ import {
 } from "./components";
 import {TotalResolver} from "./services";
 import {Error404Component} from "./components";
+import {EpisodesMultipleComponent} from "./components/episodes-multiple/episodes.multiple.component";
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
         component: EpisodesComponent
       },
       {path: 'episodes/:id', component: EpisodeSingleComponent, pathMatch: 'full'},
+      {path: 'episodes/multiple/:ids', component: EpisodesMultipleComponent},
       {
         path: 'locations',
         runGuardsAndResolvers: 'paramsOrQueryParamsChange',

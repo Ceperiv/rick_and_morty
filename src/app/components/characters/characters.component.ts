@@ -15,12 +15,13 @@ export class CharactersComponent implements OnInit {
   total_pages: number;
   selectedCharactersId: number;
   isVisible: boolean = false;
-  allSelectedIds:Array<number> = []
+  allSelectedIds: Array<number> = []
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
               private router: Router,
               private checkboxService: CheckboxService) {
+    this.cleanList()
   };
 
   ngOnInit(): void {

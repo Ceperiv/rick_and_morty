@@ -1,0 +1,53 @@
+.wrap_single_character {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    color: gray;
+  }
+
+  .main_single_character {
+    width: 100%;
+    display: flex;
+
+    .image_info {
+      padding: 10px 0;
+      color: silver;
+
+      .image > a > img {
+        border-radius: 1px;
+        transition: .3s;
+      }
+
+      .image > a > img:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        border-radius: 5px;
+        transition: .3s;
+      }
+    }
+
+    .single_character_info {
+      padding: 50px 20px;
+    }
+  }
+
+  .character_episodes {
+    width: 100%;
+
+    ::ng-deep.mat-expansion-panel-body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .episodes_url {
+      width: 150px;
+      border: #282828 1px solid;
+      border-radius: 5px;
+      margin: 2px;
+      padding: 0 2px;
+    }
+  }
+}

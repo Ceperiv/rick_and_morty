@@ -1,21 +1,21 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-
-import {ICharacterFilter} from "../../interfaces";
-import {QueryParamsService, TotalService} from "../../services";
+import {ICharacterFilter, IEpisodeFilter} from "../../interfaces";
+import {TotalService} from "../../services";
+import {QueryParamsService} from "../../services/query.params.service";
 
 @Component({
-  selector: 'app-characters-filter',
-  templateUrl: './characters.filter.component.html',
-  styleUrls: ['./characters.filter.component.scss']
+  selector: 'app-episodes-filter',
+  templateUrl: './episodes.filter.component.html',
+  styleUrls: ['./episodes.filter.component.scss']
 })
 
-export class CharactersFilterComponent implements OnInit, AfterViewInit {
+export class EpisodesFilterComponent implements OnInit, AfterViewInit {
   name: boolean = false;
   status: boolean = false;
   form: FormGroup;
-  params: ICharacterFilter;
+  params: IEpisodeFilter;
   toggleFilterBlock: boolean = true;
 
   constructor(private router: Router,
@@ -32,21 +32,15 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   _initForm(): void {
     this.form = new FormGroup({
       name: new FormControl(''),
-      status: new FormControl(''),
-      species: new FormControl(''),
-      type: new FormControl(''),
-      gender: new FormControl(''),
+      episode: new FormControl(''),
     })
   };
 
   ngAfterViewInit(): void {
-    this.activatedRoute.queryParams.subscribe(({page, name, status, species, type, gender}) => {
+    this.activatedRoute.queryParams.subscribe(({page, name, episode}) => {
       this.form = new FormGroup({
         name: new FormControl(name),
-        status: new FormControl(status),
-        species: new FormControl(species),
-        type: new FormControl(type),
-        gender: new FormControl(gender),
+        episode: new FormControl(episode),
       })
     })
   };
@@ -65,11 +59,8 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   cleanFilter() {
     this.form = new FormGroup({
       name: new FormControl(''),
-      status: new FormControl(''),
-      species: new FormControl(''),
-      type: new FormControl(''),
-      gender: new FormControl(''),
+      episode: new FormControl(''),
     })
-    this.router.navigate(['/characters'])
+    this.router.navigate(['/episodes'])
   }
 }

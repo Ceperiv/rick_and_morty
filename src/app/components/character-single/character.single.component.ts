@@ -14,8 +14,9 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
   error: IPageError;
   id: number;
   originUrl: string;
-  locationUrl: string
-  episodeUrls: Array<string> = []
+  locationUrl: string;
+  episodeUrls: Array<string> = [];
+  panelOpenState: boolean = false;
 
   constructor(private singleComponentService: SingleComponentService,
               private activatedRoute: ActivatedRoute,
@@ -30,7 +31,7 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
       this.id = this.singleComponent?.id;
 
       if (!this.id) {
-        this.totalService.getById.characters(id).subscribe({
+        this.totalService.getById.character(id).subscribe({
           next: (value) => {
             this.singleComponent = value;
           },

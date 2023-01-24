@@ -28,7 +28,7 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
       this.id = this.singleComponent?.id
 
       if (!this.id) {
-        this.totalService.getById.locations(id).subscribe({
+        this.totalService.getById.location(id).subscribe({
 
           next: (value) => {
             this.singleComponent = value

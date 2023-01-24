@@ -1,7 +1,12 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
+import {
+  CheckboxService,
+  MultipleComponentsService,
+  SingleComponentService,
+  TotalService
+} from "../../services";
 import {ICharacter, IPageError} from "../../interfaces";
 
 @Component({
@@ -12,7 +17,6 @@ import {ICharacter, IPageError} from "../../interfaces";
 export class CharacterComponent implements OnInit, AfterViewInit {
   @Input()
   character: ICharacter;
-
   singleCharacter: ICharacter;
   id: number;
   originUrl: string;
@@ -39,6 +43,7 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       }
     });
 
+
     this.checkboxService.isAllChecked().subscribe(value => {
       if (value === true) {
         this.selectedId = this.character.id;
@@ -53,9 +58,19 @@ export class CharacterComponent implements OnInit, AfterViewInit {
     this.locationUrl = `/locations/${locationId}`;
   };
 
+  ngAfterViewInit(): void {
+    this.multipleComponentsService.getIds().map((value) => {
+      if (value === this.character.id) {
+        this.selectedId = value;
+        this.classActive = true;
+        this.checkboxService.enable.isChecked()
+      }
+    });
+  };
+
   submit(): void {
     this.id = this.character.id;
-    this.totalService.getById.characters(this.id).subscribe(
+    this.totalService.getById.character(this.id).subscribe(
       {
         next: (value) => {
           this.singleCharacter = value;
@@ -81,15 +96,5 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       this.checkboxService.disable.isAllChecked()
 
     }
-  };
-
-  ngAfterViewInit(): void {
-    this.multipleComponentsService.getIds().map((value) => {
-      if (value === this.character.id) {
-        this.selectedId = value;
-        this.classActive = true;
-        this.checkboxService.enable.isChecked()
-      }
-    });
   };
 }

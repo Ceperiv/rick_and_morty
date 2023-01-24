@@ -1,9 +1,48 @@
-<div class="character_filter">
-  <h2>Filter by:</h2>
-  <a routerLink="">name</a><!--name: filter by the given name.-->
-  <a routerLink="">status</a> <!--filter by the given status (alive, dead or unknown).-->
-  <a routerLink="">species</a> <!--filter by the given species.-->
-  <a routerLink="">type</a> <!--filter by the given type.-->
-  <a routerLink="">gender</a> <!--filter by the given gender (female, male, genderless or unknown).-->
+<div class="wrap_character_filter">
+
+  <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
+    <span>Filter</span>
+  </button>
+
+  <form  [formGroup]="form" class="filter_form">
+    <div *ngIf="toggleFilterBlock">
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Name</mat-label>
+        <input (keyup)="submit()" matInput type="text" formControlName="name"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Status</mat-label>
+        <mat-select (ngModelChange)="submit()" formControlName="status">
+          <mat-option value="alive">alive</mat-option>
+          <mat-option value="dead">dead</mat-option>
+          <mat-option value="unknown">unknown</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Species</mat-label>
+        <input (keyup)="submit()" formControlName="species" matInput/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Type</mat-label>
+        <input (keyup)="submit()" formControlName="type" matInput/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Gender</mat-label>
+        <mat-select (ngModelChange)="submit()" formControlName="gender">
+          <mat-option value="female">female</mat-option>
+          <mat-option value="male">male</mat-option>
+          <mat-option value="unknown">unknown</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="form_buttons">
+        <button (click)="submit()" mat-raised-button>Search</button>
+        <button (click)="cleanFilter()" mat-raised-button>Clean</button>
+      </div>
+    </div>
+  </form>
 </div>
 

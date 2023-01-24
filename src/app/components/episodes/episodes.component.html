@@ -1,5 +1,14 @@
 <div class="wrap_episodes">
-  <app-episode *ngFor="let episode of episodes" [episode]="episode"></app-episode>
+  <div class="main_content">
+    <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
+    <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
+    <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
+      <app-episodes-filter></app-episodes-filter>
+    <div class="wrap_episodes">
+      <app-episode *ngFor="let episode of episodes" [episode]="episode"></app-episode>
+    </div>
+  </div>
 </div>
-
-<app-pagination [total_pages]="total_pages"></app-pagination>
+<div class="pagination">
+  <app-pagination [total_pages]="total_pages"></app-pagination>
+</div>
