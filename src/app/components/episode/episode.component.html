@@ -9,7 +9,7 @@
           <h3><a (click)="submit()">{{episode.name}}</a></h3>
         </mat-panel-title>
         <mat-panel-description style="padding-left: 10%">
-          <div><img *ngIf="panelOpenState" src="assets/img/common/R_n_M.jpg" width="150px" alt="">
+          <div class="inner_shadow"><img class="image_toggle" *ngIf="panelOpenState" src="assets/img/common/R_n_M.jpg" width="150px" alt="">
             <span *ngIf="!panelOpenState"><i>episode:</i>{{episode.episode}}</span>
           </div>
         </mat-panel-description>

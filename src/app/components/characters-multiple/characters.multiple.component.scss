@@ -1,10 +1,15 @@
 .character_multiple_wrap {
-width: 100%;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
 
   .character_multiple_container {
     width: 48%;
+    height: min-content;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 5px;
 
     a {
       color: silver;

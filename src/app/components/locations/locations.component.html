@@ -1,5 +1,7 @@
 <div class="wrap_locations">
+  <mat-accordion>
   <app-location *ngFor="let location of locations" [location]="location"></app-location>
+  </mat-accordion>
 </div>
 
 <app-pagination [total_pages]="total_pages"></app-pagination>

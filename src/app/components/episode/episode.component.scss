@@ -27,6 +27,13 @@
     color: #b27241;
 
   }
+  .inner_shadow{
+    padding: 10px;
+    box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  }
+  .image_toggle{
+    box-shadow: 10px 10px 10px;
+  }
 
   .checkbox {
     position: absolute;

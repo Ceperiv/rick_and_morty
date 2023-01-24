@@ -15,6 +15,7 @@ export class LocationComponent {
 
   singleLocation: ILocation
   id: number
+  panelOpenState: boolean = false;
 
   constructor(private router:Router,
               private singleComponentService:SingleComponentService,

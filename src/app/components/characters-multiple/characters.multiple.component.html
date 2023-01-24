@@ -31,15 +31,13 @@
 
     <div class="character_episodes">
       <mat-accordion>
-        <mat-expansion-panel style="background: #282828"
-                             (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
+        <mat-expansion-panel style="background: #282828">
           <mat-expansion-panel-header>
             <mat-panel-title style="padding-top: 15px">
               <h2>Episodes</h2>
             </mat-panel-title>
             <mat-panel-description>
-              <i>click to {{panelOpenState ? 'close' : 'open'}}</i>
+              <i>review</i>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="episodes_url" *ngFor="let episodeUrl of character.episode">

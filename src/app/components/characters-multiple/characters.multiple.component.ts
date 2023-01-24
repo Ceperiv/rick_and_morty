@@ -13,7 +13,6 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
   characters: ICharacter[];
   ids: Array<number> = [];
   error: IPageError;
-  panelOpenState: boolean = false;
 
   constructor(private multipleComponentsService: MultipleComponentsService,
               private activatedRoute: ActivatedRoute) {
