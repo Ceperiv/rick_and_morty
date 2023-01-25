@@ -39,7 +39,7 @@
       transition: .3s;
     }
 
-    h5 {
+    .position_absolute {
       position: absolute;
       left: 5px;
       bottom: 5px;
@@ -51,14 +51,10 @@
     margin: 0;
     position: relative;
 
-    a {
-      color: silver;
-
-      h2 {
-        transition: .3s;
-        margin: 0;
-      }
+    .character_name{
+      font-size: 1.2rem;
     }
+
 
     .checkbox {
       position: absolute;
@@ -84,13 +80,19 @@
   }
 
   input[type=checkbox]:checked,
-  .name a h2:hover {
+  a {
+    color: silver;
+    transition: .3s;
+    margin: 0;
+
+  }
+  .name a:hover {
     cursor: pointer;
     color: #b27241;
     transition: .3s;
   }
 
-  .name a h2:active {
+  .name a:active {
     color: #885226;
   }
 }

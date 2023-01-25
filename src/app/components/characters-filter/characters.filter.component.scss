@@ -14,6 +14,9 @@
       letter-spacing: .2rem;
     }
   }
+  ::ng-deep.mdc-text-field--filled, .color_silver{
+    background-color: silver;
+  }
 
   .filter_form {
     width: 100%;

@@ -4,7 +4,7 @@
     <span>Filter</span>
   </button>
 
-  <form  [formGroup]="form" class="filter_form">
+  <form [formGroup]="form" class="filter_form">
     <div *ngIf="toggleFilterBlock">
       <mat-form-field appearance="fill" class="mat-form-field">
         <mat-label>Name</mat-label>
@@ -39,8 +39,8 @@
         </mat-select>
       </mat-form-field>
       <div class="form_buttons">
-        <button (click)="submit()" mat-raised-button>Search</button>
-        <button (click)="cleanFilter()" mat-raised-button>Clean</button>
+        <button class="color_silver" (click)="submit()" mat-raised-button>Search</button>
+        <button class="color_silver" (click)="cleanFilter()" mat-raised-button>Clean</button>
       </div>
     </div>
   </form>

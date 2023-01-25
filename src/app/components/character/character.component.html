@@ -2,10 +2,10 @@
   <div class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
     <div class="shadow" (click)="submit()"></div>
-    <h5>{{character.created.split('T').splice(-2, 1)}}</h5>
+    <h5 class="position_absolute">{{character.created.split('T').splice(-2, 1)}}</h5>
   </div>
   <div class="name">
-    <a (click)="submit()"><h2>{{character.name}}</h2></a>
+    <a (click)="submit()"><span class="character_name">{{character.name}}</span></a>
     <label (click)="select()">
       <input class="checkbox {{classActive && 'active'}}" type="checkbox" [checked]="classActive">
     </label>
