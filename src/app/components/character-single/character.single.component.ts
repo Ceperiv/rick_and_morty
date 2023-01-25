@@ -12,7 +12,6 @@ import {ICharacter, IPageError} from "../../interfaces";
 export class CharacterSingleComponent implements OnInit, AfterViewInit {
   singleComponent: ICharacter;
   error: IPageError;
-  id: number;
   originUrl: string;
   locationUrl: string;
   episodeUrls: Array<string> = [];
@@ -28,16 +27,14 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
     this.singleComponent = this.singleComponentService.getSingleInfo.character();
 
     this.activatedRoute.params.subscribe(({id}) => {
-      this.id = this.singleComponent?.id;
 
-      if (!this.id) {
         this.totalService.getById.character(id).subscribe({
           next: (value) => {
             this.singleComponent = value;
           },
           error: (e) => this.error = {message: e.error.error, status: e.status}
         });
-      }
+
     });
   };
 
