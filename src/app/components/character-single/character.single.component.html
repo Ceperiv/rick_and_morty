@@ -9,10 +9,10 @@
         </a>
 
         <h4>{{singleComponent.name}}</h4>
-        <h5>created:{{singleComponent.created}}</h5>
+        <h5>created: {{singleComponent.created.split('T').splice(0,1)}}</h5>
       </div>
     </div>
-    <div class="single_character_info" *ngIf="singleComponent.origin.name !== 'unknown'">
+    <div class="single_character_info">
       <h2>Origin name:
         <a routerLink="{{originUrl}}">
           <h4>{{singleComponent.origin.name}}</h4>
@@ -26,10 +26,11 @@
       </h2>
 
 
-      <p>species:{{singleComponent.species}}</p>
-      <p *ngIf="singleComponent.status !== 'unknown'">status:{{singleComponent.status}}</p>
-      <p *ngIf="singleComponent.type">type:{{singleComponent.type}} </p>
-      <p>gender:{{singleComponent.gender}}</p>
+      <p>species: {{singleComponent.species}}</p>
+      <p>status: {{singleComponent.status}}</p>
+      <p *ngIf="singleComponent.type">type: {{singleComponent.type}} </p>
+      <p *ngIf="!singleComponent.type">type: <i>no info</i> </p>
+      <p>gender: {{singleComponent.gender}}</p>
     </div>
   </div>
   <div class="character_episodes">

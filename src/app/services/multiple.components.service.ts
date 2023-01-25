@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
 import {urls} from "../configs";
-import {ICharacter, IEpisode} from "../interfaces";
+import {ICharacter, IEpisode, ILocation} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +57,9 @@ export class MultipleComponentsService {
     },
     episodes: (): Observable<IEpisode[]> => {
       return this.httpClient.get<IEpisode[]>(urls.episodes + '/' + this.selectedIds)
-    }
+    },
+    locations: (): Observable<ILocation[]> => {
+      return this.httpClient.get<ILocation[]>(urls.locations + '/' + this.selectedIds)
+    },
   };
 }

@@ -3,8 +3,20 @@
   display: flex;
   flex-direction: column;
 
+  a, a:hover, a:active {
+    transition: 0.3s;
+  }
+
   a {
     color: gray;
+  }
+
+  a:hover {
+    color: #814110;
+  }
+
+  a:active {
+    color: #332f2f;
   }
 
   .main_single_character {
@@ -49,17 +61,7 @@
       margin: 2px;
       padding: 0 2px;
 
-      a, a:hover, a:active {
-        transition: 0.3s;
-      }
 
-      a:hover {
-        color: #814110;
-      }
-
-      a:active {
-        color: #332f2f;
-      }
     }
   }
 }

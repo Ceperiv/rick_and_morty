@@ -11,6 +11,7 @@ import {
 import {TotalResolver} from "./services";
 import {Error404Component} from "./components";
 import {EpisodesMultipleComponent} from "./components/episodes-multiple/episodes.multiple.component";
+import {LocationsMultipleComponent} from "./components/locations-multiple/locations.multiple.component";
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
         component: LocationsComponent
       },
       {path: 'locations/:id', component: LocationSingleComponent, pathMatch: 'full'},
+      {path: 'locations/multiple/:ids', component: LocationsMultipleComponent},
     ]
   },
   {path: '**', redirectTo: 'error404', title: '404', data: {error: 404}},

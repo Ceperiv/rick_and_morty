@@ -1,24 +1,18 @@
 <div class="wrap_locations">
+  <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
+  <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
+  <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
   <div class="filter_locations">
     <app-locations-filter></app-locations-filter>
   </div>
   <main class="main_locations">
-    <mat-stepper orientation="vertical">
-      <app-location *ngFor="let location of locations" [location]="location">
-        <mat-step>
-          <ng-template matStepLabel>
-            <h4><b>{{location.name}}</b></h4>
-          </ng-template>
-          <ng-template matStepContent>
-            <button (click)="submit(location)" mat-raised-button> {{location.name}}</button>
-            <h3>type: {{location.type}}</h3>
-            <h4>Dimension: {{location.dimension}}</h4>
-            <p>created: {{location.created}}</p>
-          </ng-template>
-        </mat-step>
-      </app-location>
-    </mat-stepper>
+
+    <app-location *ngFor="let location of locations" [location]="location"></app-location>
+
   </main>
 </div>
 
-<app-pagination [total_pages]="total_pages"></app-pagination>
+
+<div class="pagination">
+  <app-pagination [total_pages]="total_pages"></app-pagination>
+</div>

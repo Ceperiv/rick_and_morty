@@ -73,6 +73,4 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
       this.checkboxService.disable.isAllChecked()
     }
   };
-
-
 }

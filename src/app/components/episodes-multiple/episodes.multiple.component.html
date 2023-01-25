@@ -1,9 +1,9 @@
 <div *ngFor="let episode of episodes">
-  <div class="wrap_single_episode" *ngIf="!error; else pageError">
+  <div class="wrap_multiple_episode" *ngIf="!error; else pageError">
 
     <div class="single_episode_info_1"><h1><a routerLink="/episodes/{{episode.id}}">{{episode.name}}</a></h1>
-      <h3>air date:{{episode.air_date}}</h3>
-      <p>created: {{episode.created}}</p>
+      <h3>air date: {{episode.air_date}}</h3>
+      <p>created: {{episode.created.split('T').splice(0,1)}}</p>
       <hr/>
     </div>
 
@@ -18,11 +18,8 @@
   </div>
 
   <ng-template #pageError>
-    <h1>{{error.message}}:(</h1>
+    <h1>{{error.message}} :(</h1>
     <h4> error: {{error.status}}</h4>
 
   </ng-template>
-
-
-
 </div>

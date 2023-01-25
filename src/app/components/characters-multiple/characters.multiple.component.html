@@ -8,24 +8,25 @@
             <img src="{{character.image}}" alt="img:{{character.name}}"/>
           </a>
           <h4>{{character.name}}</h4>
-          <h5>created:{{character.created}}</h5>
+          <h5>created: {{character.created.split('T').splice(0,1)}}</h5>
         </div>
       </div>
-      <div class="single_character_info" *ngIf="character.origin.name !== 'unknown'">
+      <div class="single_character_info">
         <h2>Origin name:
-          <a routerLink="/locations/{{character.origin.url.split('/').slice(-1).toString()}}">
+          <a routerLink="/locations/{{character.origin.url.split('/').slice(-1)}}">
             <h4>{{character.origin.name}}</h4>
           </a>
         </h2>
         <h2>Location name:
-          <a routerLink="/locations/{{character.location.url.split('/').slice(-1).toString()}}">
+          <a routerLink="/locations/{{character.location.url.split('/').slice(-1)}}">
             <h4>{{character.location.name}}</h4>
           </a>
         </h2>
-        <p>species:{{character.species}}</p>
-        <p *ngIf="character.status !== 'unknown'">status:{{character.status}}</p>
-        <p *ngIf="character.type">type:{{character.type}} </p>
-        <p>gender:{{character.gender}}</p>
+        <p>species: {{character.species}}</p>
+        <p>status: {{character.status}}</p>
+        <p *ngIf="character.type">type: {{character.type}} </p>
+        <p *ngIf="!character.type">type: <i>no info</i> </p>
+        <p>gender: {{character.gender}}</p>
       </div>
     </div>
 
@@ -41,8 +42,8 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="episodes_url" *ngFor="let episodeUrl of character.episode">
-            <a routerLink="/episodes/{{episodeUrl.split('/').slice(-1).toString()}}">
-              <h4>Episode - {{episodeUrl.split('/').slice(-1).toString()}}</h4>
+            <a routerLink="/episodes/{{episodeUrl.split('/').slice(-1)}}">
+              <h4>Episode - {{episodeUrl.split('/').slice(-1)}}</h4>
             </a>
           </div>
         </mat-expansion-panel>

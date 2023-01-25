@@ -1,1 +1,13 @@
-<p>locations.multiple works!</p>
+<div class="wrap_multiple_location" *ngFor="let location of locations">
+
+  <div class="block_location_info"><h2>{{location.name}}</h2>
+    <h3>type: {{location.type}}</h3>
+    <h4>{{location.dimension}}</h4>
+    <p>created: {{location.created}}</div>
+  <div class="block_residents_url">
+    <div class="resident" *ngFor="let url of location.residents">
+      <a href="{{url}}">Character - {{url.split('/').splice(-1)}}</a>
+    </div>
+  </div>
+
+</div>

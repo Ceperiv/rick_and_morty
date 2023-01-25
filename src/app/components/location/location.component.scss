@@ -1,0 +1,63 @@
+.block_location {
+  width: 100%;
+  position: relative;
+  background: #8a8585;
+  padding: 0 5px;
+  box-shadow: 10px 10px 10px;
+
+  .wrap_mat_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .mat_button{
+
+    }
+  }
+
+  .checkbox {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    opacity: 0.2;
+    transition: .3s;
+
+  }
+
+  .checkbox:hover {
+    transition: .3s;
+    opacity: 1;
+  }
+
+  .checkbox::after {
+    opacity: 1;
+  }
+
+  .active {
+    opacity: 1;
+  }
+  a, a:hover, a:active {
+    transition: .3s;
+    color: #c65eff;
+  }
+
+  a {
+    color: silver;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: #282828;
+  }
+
+  a:active {
+    letter-spacing: .3rem;
+
+  }
+}
+::ng-deep.mat-mdc-menu-content {
+  background: #817d7d;
+}

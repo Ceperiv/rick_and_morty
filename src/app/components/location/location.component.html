@@ -1,4 +1,23 @@
+<div class="block_location">
+  <a (click)="submit()"><h4>{{location.name}}</h4></a>
 
+  <div class="wrap_mat_button">
+    <button class="mat_button" mat-button [matMenuTriggerFor]="locationResidents">Residents</button>
 
+    <mat-menu #locationResidents="matMenu">
+      <div *ngFor="let resident of location.residents">
+        <button routerLink="/characters/{{resident.split('/').splice(-1)}}"
+                mat-menu-item>Character {{resident.split('/').splice(-1)}}
+        </button>
+      </div>
+    </mat-menu>
+  </div>
 
+  <h3>type: {{location.type}}</h3>
+  <h4>dimension: {{location.dimension}}</h4>
+  <p>created: {{location.created.split("T").splice(0,1)}}</p>
 
+  <label (click)="select()">
+    <input class="checkbox {{classActive && 'active'}}" type="checkbox" [checked]="classActive">
+  </label>
+</div>

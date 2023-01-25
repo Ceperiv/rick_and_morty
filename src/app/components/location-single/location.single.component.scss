@@ -1,0 +1,40 @@
+.wrap_single_location{
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .block_location_info{
+    width: 20%;
+
+  }
+  .block_residents_url{
+    width: 78%;
+    display: flex;
+    flex-wrap: wrap;
+    .resident{
+      width: 150px;
+    }
+  }
+
+  a, a:hover, a:active {
+    transition: .3s;
+    color: #c65eff;
+  }
+
+  a {
+    color: silver;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: #814110;
+  }
+
+  a:active {
+    color: #885226;
+
+  }
+}
