@@ -22,11 +22,8 @@ export class LocationComponent {
 
   submit():void{
     this.id = this.location.id
-    this.totalService.getById.location(this.id).subscribe((value) => {
-        this.singleLocation = value
         this.singleComponentService.setSingleInfo.location(this.singleLocation)
         this.router.navigate([`locations/${this.id}`])
-      }
-    );
+
   }
 }

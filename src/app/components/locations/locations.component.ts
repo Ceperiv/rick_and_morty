@@ -25,4 +25,6 @@ export class LocationsComponent implements OnInit{
       this.locations = value.results
     })
   }
+
+
 }

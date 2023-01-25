@@ -1,4 +1,4 @@
-<div class="wrap_episode_filter">
+<div class="wrap_location_filter">
 
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
     <span>Filter</span>
@@ -12,8 +12,13 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="mat-form-field">
-        <mat-label>Episode</mat-label>
-        <input (keyup)="submit()" formControlName="episode" matInput/>
+        <mat-label>Type</mat-label>
+        <input (keyup)="submit()" formControlName="type" matInput/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Dimension</mat-label>
+        <input (keyup)="submit()" formControlName="dimension" matInput/>
       </mat-form-field>
 
       <div class="form_buttons">
@@ -23,4 +28,5 @@
     </div>
   </form>
 </div>
+
 

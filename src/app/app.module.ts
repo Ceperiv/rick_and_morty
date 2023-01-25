@@ -38,6 +38,8 @@ import {EpisodesFilterComponent} from "./components";
 import { EpisodesMultipleComponent } from './components/episodes-multiple/episodes.multiple.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatStepperModule} from "@angular/material/stepper";
+import { LocationsFilterComponent } from './components/locations-filter/locations.filter.component';
+import { LocationsMultipleComponent } from './components/locations-multiple/locations.multiple.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     FooterComponent,
     EpisodesFilterComponent,
     EpisodesMultipleComponent,
+    LocationsFilterComponent,
+    LocationsMultipleComponent,
   ],
   imports: [
     HttpClientModule,

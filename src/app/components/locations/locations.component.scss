@@ -1,0 +1,11 @@
+.wrap_locations{
+  display: flex;
+
+  .filter_locations{
+    width: 15%;
+  }
+  .main_locations{
+    width: 83%;
+    margin: 5px;
+  }
+}

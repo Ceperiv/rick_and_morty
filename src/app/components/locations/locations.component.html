@@ -1,18 +1,24 @@
 <div class="wrap_locations">
-  <mat-stepper orientation="vertical">
-  <app-location *ngFor="let location of locations" [location]="location">
-    <mat-step>
-      <ng-template matStepLabel>
-        <h1>{{location.name}}</h1>
-      </ng-template>
-      <ng-template matStepContent>
-        <h3>type: {{location.type}}</h3>
-        <h4>{{location.dimension}}</h4>
-        <p>created: {{location.created}}</p>
-      </ng-template>
-    </mat-step>
-  </app-location>
-  </mat-stepper>
+  <div class="filter_locations">
+    <app-locations-filter></app-locations-filter>
+  </div>
+  <main class="main_locations">
+    <mat-stepper orientation="vertical">
+      <app-location *ngFor="let location of locations" [location]="location">
+        <mat-step>
+          <ng-template matStepLabel>
+            <h4><b>{{location.name}}</b></h4>
+          </ng-template>
+          <ng-template matStepContent>
+            <h4><a routerLink="/location/{{location.id}}">{{location.name}}</a></h4>
+            <h3>type: {{location.type}}</h3>
+            <h4>Dimension: {{location.dimension}}</h4>
+            <p>created: {{location.created}}</p>
+          </ng-template>
+        </mat-step>
+      </app-location>
+    </mat-stepper>
+  </main>
 </div>
 
 <app-pagination [total_pages]="total_pages"></app-pagination>
