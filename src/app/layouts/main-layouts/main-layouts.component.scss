@@ -5,6 +5,13 @@
     width: 96%;
     margin: 0 auto;
     //flex: 0;
+
+    .carousel_slide {
+      background-color: black;
+      //overflow: hidden;
+      height: 100px;
+      //z-index: -1;
+    }
   }
 
   .footer {

@@ -52,6 +52,7 @@ export class MultipleComponentsService {
   };
 
   getComponentsById = {
+
     characters: (): Observable<ICharacter[]> => {
       return this.httpClient.get<ICharacter[]>(urls.characters + '/' + this.selectedIds)
     },

@@ -2,6 +2,7 @@
   <app-header></app-header>
   <mat-progress-bar *ngIf="isLoading;else isNotLoading" mode="indeterminate" value="40"></mat-progress-bar>
   <main class="main">
+    <app-carousel class="carousel_slide"></app-carousel>
     <router-outlet class="router_outlet"></router-outlet>
   </main>
   <footer class="footer">
