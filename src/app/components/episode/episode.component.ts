@@ -14,7 +14,6 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
   episode: IEpisode;
 
   singleEpisode: IEpisode
-  id: number
   selectedId: number | undefined;
   classActive: boolean;
   panelOpenState: boolean = false;
@@ -43,13 +42,22 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
         this.classActive = value
       }
     });
-  }
+  };
+
+  ngAfterViewInit(): void {
+    this.multipleComponentsService.getIds().map((value) => {
+      if (value === this.episode.id) {
+        this.selectedId = value;
+        this.classActive = true;
+        this.checkboxService.enable.isChecked()
+      }
+    });
+  };
 
   submit(): void {
-    this.id = this.episode.id
     this.singleComponentService.setSingleInfo.episode(this.episode)
-    this.router.navigate([`episodes/${this.id}`])
-  }
+    this.router.navigate([`episodes/${this.episode.id}`])
+  };
 
   select() {
     const id = this.episode.id;
@@ -66,14 +74,5 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
     }
   };
 
-  ngAfterViewInit(): void {
-    this.multipleComponentsService.getIds().map((value) => {
-      if (value === this.episode.id) {
-        this.selectedId = value;
-        this.classActive = true;
-        this.checkboxService.enable.isChecked()
-      }
-    });
-  }
 
 }

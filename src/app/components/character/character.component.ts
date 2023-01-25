@@ -17,7 +17,6 @@ import {ICharacter, IPageError} from "../../interfaces";
 export class CharacterComponent implements OnInit, AfterViewInit {
   @Input()
   character: ICharacter;
-  id: number;
   originUrl: string;
   locationUrl: string;
   episodeUrls: Array<string> = [];
@@ -68,11 +67,8 @@ export class CharacterComponent implements OnInit, AfterViewInit {
   };
 
   submit(): void {
-    this.id = this.character.id;
     this.singleComponentService.setSingleInfo.character(this.character);
-    this.router.navigate([`characters/${this.id}`]);
-
-
+    this.router.navigate([`characters/${this.character.id}`]);
   };
 
   select() {
@@ -87,7 +83,6 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       this.selectedId = undefined;
       this.multipleComponentsService.removeId(id);
       this.checkboxService.disable.isAllChecked()
-
     }
   };
 }
