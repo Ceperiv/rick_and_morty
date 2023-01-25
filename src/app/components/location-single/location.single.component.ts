@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 
 import {SingleComponentService, TotalService} from "../../services";
@@ -10,6 +10,7 @@ import {ILocation, IPageError} from "../../interfaces";
   styleUrls: ['./location.single.component.scss']
 })
 export class LocationSingleComponent implements OnInit, AfterViewInit {
+  @Input()
   singleComponent: ILocation;
   error: IPageError;
   id: number;
@@ -42,7 +43,7 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.singleComponent.residents.map(value => {
-      const characterId = value.split('/').splice(-1).toString()
+      const characterId = value.split('/').splice(-1)
       const characterUrl = `/characters/${characterId ? characterId : ''}`
       this.residentsUrls.push(characterUrl)
     })

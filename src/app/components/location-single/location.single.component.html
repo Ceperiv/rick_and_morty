@@ -5,7 +5,9 @@
     <p>created: {{singleComponent.created}}</div>
   <div class="block_residents_url">
     <div class="resident" *ngFor="let url of residentsUrls">
-      <a href="{{url}}">Character - {{url.split('/').splice(-1)}}</a>
+      <a routerLink="/characters/{{url.split('/').splice(-1)}}">
+        Character - {{url.split('/').splice(-1)}}
+      </a>
     </div>
   </div>
 </div>

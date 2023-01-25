@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
+
 import {TotalService} from "../total.service";
 import {
   ICharacter,
   ICharacterFilter,
   IEpisode,
   IEpisodeFilter,
-  ILocation, ILocationFilter,
-  IPaginated,
-  IQueryParams
+  ILocation,
+  ILocationFilter,
+  IPaginated
 } from "../../interfaces";
 import {QueryParamsService} from "../query.params.service";
 
@@ -18,10 +19,10 @@ import {QueryParamsService} from "../query.params.service";
 })
 export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode | ILocation>> {
 
-  data: Observable<IPaginated<ICharacter | IEpisode | ILocation>>
-  characterParams: ICharacterFilter
-  episodeParams: IEpisodeFilter
-  locationParams: ILocationFilter
+  data: Observable<IPaginated<ICharacter | IEpisode | ILocation>>;
+  characterParams: ICharacterFilter;
+  episodeParams: IEpisodeFilter;
+  locationParams: ILocationFilter;
 
   constructor(private totalService: TotalService,
               private router: Router,
@@ -40,11 +41,9 @@ export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode 
     const dimension = route?.queryParams['dimension'] || '';
 
 
-
     this.characterParams = this.getClearData({page, name, status, species, type, gender})
     this.episodeParams = {page, name, episode}
     this.locationParams = {page, name, type, dimension}
-
 
 
     switch (route.url[0].path) {
@@ -65,7 +64,7 @@ export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode 
     return this.data
   }
 
-  getClearData(obj:any) {
-return obj
+  getClearData(obj: any) {
+    return obj
   }
 }

@@ -8,9 +8,9 @@ import {
   ICharacterFilter,
   IEpisode,
   IEpisodeFilter,
-  ILocation, ILocationFilter,
-  IPaginated,
-  IQueryParams
+  ILocation,
+  ILocationFilter,
+  IPaginated
 } from "../interfaces";
 
 @Injectable({
