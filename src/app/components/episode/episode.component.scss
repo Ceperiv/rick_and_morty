@@ -2,7 +2,6 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 10px 10px 10px;
 
   .mat_button {
     padding-top: 15px;
@@ -15,25 +14,27 @@
   }
 
   a {
-    color: silver;
+    color: #282828;
     font-weight: 500;
     letter-spacing: .1rem;
     cursor: pointer;
   }
 
   a:hover {
-    color: #282828;
+    color: silver;
   }
 
   a:active {
-   letter-spacing: .3rem;
+    letter-spacing: .3rem;
 
   }
-  .inner_shadow{
+
+  .inner_shadow {
     padding: 10px;
     box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.2);
   }
-  .image_toggle{
+
+  .image_toggle {
     box-shadow: 10px 10px 10px;
   }
 
@@ -64,7 +65,7 @@
   background: #817d7d;
 }
 
-.padding_top{
+.padding_top {
   padding-top: 10px;
 }
 

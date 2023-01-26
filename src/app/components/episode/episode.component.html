@@ -1,7 +1,7 @@
 <div class="block_episode">
 
   <mat-accordion >
-    <mat-expansion-panel style="background: #8a8585; padding: 0"
+    <mat-expansion-panel style="background: #8a8585"
                          (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header style="min-height: 100px; padding: 20px">
@@ -9,7 +9,7 @@
           <h3><a (click)="submit()">{{episode.name}}</a></h3>
         </mat-panel-title>
         <mat-panel-description style="padding-left: 10%">
-          <div class="inner_shadow"><img class="image_toggle" *ngIf="panelOpenState" src="assets/img/common/R_n_M.jpg" width="150px" alt="">
+          <div class="inner_shadow"><img class="image_toggle" *ngIf="panelOpenState" src="assets/img/common/r_n_m.jpg" width="150px" alt="">
             <span *ngIf="!panelOpenState"><i>episode: </i>{{episode.episode}}</span>
           </div>
         </mat-panel-description>

@@ -1,7 +1,7 @@
 <div *ngIf="!error;else pageError" class="block_character">
   <div class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
-    <div class="shadow" (click)="submit()"></div>
+    <div class="block_shadow" (click)="submit()"></div>
     <h5 class="position_absolute">{{character.created.split('T').splice(-2, 1)}}</h5>
   </div>
   <div class="name">
