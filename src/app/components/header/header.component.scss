@@ -2,16 +2,53 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 40px;
+  height: 60px;
   background: #b27241;
 
+
+
+  a, a:hover, a:active {
+    transition: 0.3s;
+  }
+
   a {
+    color: #282828;
+    font-size: 1.1rem;
     padding: 5px;
     margin-left: 20px;
   }
 
-  .active {
-    color: brown;
+  a:hover {
+    color: #814110;
   }
+
+  a:active {
+    color: brown;
+    letter-spacing: .1rem;
+  }
+
+  .navigation{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+
+    .width_30{
+      width: 30%;
+    }
+
+
+
+    .active {
+      color: brown;
+      letter-spacing: .1rem;
+    }
+  }
+.header_info{
+  width: 68%;
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
+
+}
 
 }

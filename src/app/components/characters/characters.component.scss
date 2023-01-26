@@ -67,6 +67,11 @@
     }
   }
 
+  .pagination{
+    width: 100%;
+    display: flex;
+  }
+
   .wrap_characters {
     width:85%;
     display: flex;
@@ -74,6 +79,8 @@
     justify-content: space-between;
 
   }
+
+
 }
 
 app-character {
@@ -83,9 +90,5 @@ app-character {
 
 app-characters-filter {
   width: 15%;
-}
-
-app-pagination {
-  width: 400px;
 }
 

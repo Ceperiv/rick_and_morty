@@ -1,9 +1,10 @@
 import {AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatPaginator} from "@angular/material/paginator";
-import {QueryParamsService} from "../../services/query.params.service";
-import {IQueryParams} from "../../interfaces";
 import {Observable} from "rxjs";
+
+import {QueryParamsService} from "../../services";
+import {IQueryParams} from "../../interfaces";
 
 @Component({
   selector: 'app-pagination',
@@ -30,7 +31,6 @@ export class PaginationComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
 
   }
-
 
   ngAfterViewInit(): void {
     this.activatedRoute.queryParams.subscribe(({page}) => {
