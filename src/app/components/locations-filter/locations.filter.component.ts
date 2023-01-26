@@ -15,7 +15,7 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
   status: boolean = false;
   form: FormGroup;
   params: ILocationFilter;
-  toggleFilterBlock: boolean = true;
+  toggleFilterBlock: boolean = false;
 
   constructor(private router: Router,
               private totalService: TotalService,

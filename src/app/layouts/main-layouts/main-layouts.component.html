@@ -1,8 +1,9 @@
 <div class="main_layout">
   <app-header></app-header>
-    <div class="background_carousel"></div>
+     <div class="background_carousel"></div>
   <mat-progress-bar *ngIf="isLoading;else isNotLoading" mode="indeterminate" value="40">
   </mat-progress-bar>
+  <div class="block_carousel_title"><span class="carousel_title">The Rick and Morty</span></div>
   <main class="main">
     <app-carousel class="carousel_slide"></app-carousel>
     <router-outlet class="router_outlet"></router-outlet>

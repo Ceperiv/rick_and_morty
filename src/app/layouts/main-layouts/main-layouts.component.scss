@@ -2,17 +2,35 @@
   width: 100%;
   position: relative;
 
-  .background_carousel{
+  .background_carousel {
     overflow: hidden;
     width: 100%;
-    height:300px;
-    background: linear-gradient(90deg, rgba(15,14,33,1) 0%, rgba(134,131,48,1) 54%, rgba(39,36,59,1) 100%);
+    height: 300px;
+    background: linear-gradient(90deg, rgba(15, 14, 33, 1) 0%, rgba(134, 131, 48, 1) 54%, rgba(39, 36, 59, 1) 100%);
     filter: blur(1rem);
     position: absolute;
     top: 40px;
     left: 0;
-    z-index: -1;
+    z-index: -5;
   }
+
+  .block_carousel_title{
+    position: absolute;
+    left: 0;
+    top: 0 ;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  .carousel_title{
+    color: silver;
+    font-size: 2rem;
+    letter-spacing: 2rem;
+
+  }
+  }
+
 
 
   .main {

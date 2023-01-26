@@ -21,6 +21,12 @@ export class TotalService {
   constructor(private httpClient: HttpClient) {
   }
 
+  getTotalInfo = {
+    characters: (): Observable<IPaginated<ICharacter>> => {
+      return this.httpClient.get<IPaginated<ICharacter>>(urls.characters)
+    }
+  }
+
   getAll = {
     characters: (params: ICharacterFilter | any): Observable<IPaginated<ICharacter>> => {
       return this.httpClient.get<IPaginated<ICharacter>>(urls.characters, {params})

@@ -16,7 +16,7 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   status: boolean = false;
   form: FormGroup;
   params: ICharacterFilter;
-  toggleFilterBlock: boolean = true;
+  toggleFilterBlock: boolean = false;
 
   constructor(private router: Router,
               private totalService: TotalService,

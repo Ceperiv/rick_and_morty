@@ -16,7 +16,7 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
   status: boolean = false;
   form: FormGroup;
   params: IEpisodeFilter;
-  toggleFilterBlock: boolean = true;
+  toggleFilterBlock: boolean = false;
 
   constructor(private router: Router,
               private totalService: TotalService,
