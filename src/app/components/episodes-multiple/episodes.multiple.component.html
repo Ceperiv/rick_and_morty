@@ -1,14 +1,14 @@
 <div *ngFor="let episode of episodes">
   <div class="wrap_multiple_episode" *ngIf="!error; else pageError">
 
-    <div class="single_episode_info_1">
+    <div class="multiple_episode_info_1">
       <h1><span style="font-weight: 100">Episode name: </span> <a routerLink="/episodes/{{episode.id}}">{{episode.name}}</a></h1>
       <h3>air date: {{episode.air_date}}</h3>
       <p>created: {{episode.created.split('T').splice(0,1)}}</p>
       <hr/>
     </div>
 
-    <div class="single_episode_info_2">
+    <div class="multiple_episode_info_2">
       <h2>Characters in the episode <span style="color: #814110">{{episode.episode}}</span></h2>
       <div class="buttons_block">
         <div class="characters_url" *ngFor="let url of episode.characters">

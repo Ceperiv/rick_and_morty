@@ -4,6 +4,7 @@
     <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
     <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
       <app-episodes-filter></app-episodes-filter>
+
     <div class="wrap_episodes">
       <app-episode *ngFor="let episode of episodes" [episode]="episode"></app-episode>
     </div>

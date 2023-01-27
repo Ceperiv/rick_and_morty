@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ICharacter} from "../../interfaces";
 import {MultipleComponentsService} from "../../services";
+import {CarouselService} from "../../services/carousel.service";
 
 @Component({
   selector: 'app-carousel',
@@ -13,15 +14,16 @@ export class CarouselComponent implements OnInit {
   characters: ICharacter[]
 
 
-  constructor(private multipleComponentsService: MultipleComponentsService) {
+  constructor(private carouselService: CarouselService) {
 
-    this.multipleComponentsService.setManyIds(this.randomId)
+    this.carouselService.setCarouselIds(this.randomId)
 
   }
 
   ngOnInit(): void {
-    this.multipleComponentsService.getComponentsById.characters().subscribe(value => {
+    this.carouselService.getRandomCharacters().subscribe(value => {
       this.characters = value
+      this.carouselService.cleanRandomIds()
     })
 
   }

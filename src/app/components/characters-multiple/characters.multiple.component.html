@@ -1,6 +1,6 @@
 <div class="character_multiple_wrap" *ngIf="!error;else pageError">
   <div class="character_multiple_container" *ngFor="let character of characters">
-    <div class="main_single_character">
+    <div class="main_multiple_character">
       <div class="image_info">
         <h1>{{character.name}}</h1>
         <div class="image">
@@ -11,7 +11,7 @@
           <h5>created: {{character.created.split('T').splice(0,1)}}</h5>
         </div>
       </div>
-      <div class="single_character_info">
+      <div class="multiple_character_info">
         <h2>Origin name:
           <a routerLink="/locations/{{character.origin.url.split('/').slice(-1)}}">
             <h4>{{character.origin.name}}</h4>

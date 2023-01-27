@@ -16,7 +16,7 @@
       color: grey;
     }
 
-    .main_single_character {
+    .main_multiple_character {
       width: 100%;
       display: flex;
 
@@ -37,7 +37,7 @@
         }
       }
 
-      .single_character_info {
+      .multiple_character_info {
         padding: 50px 20px;
         .character_status {
           display: flex;
