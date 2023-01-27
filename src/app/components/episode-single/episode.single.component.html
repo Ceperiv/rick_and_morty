@@ -1,4 +1,7 @@
 <div class="wrap_single_episode" *ngIf="!error; else pageError">
+
+  <span class="episode_title">Episode</span>
+
   <div class="single_episode_info_1">
     <h1><span style="font-weight: 100">Episode name:</span> {{singleComponent.name}}</h1>
     <h3>air date: {{singleComponent.air_date}}</h3>
@@ -6,7 +9,7 @@
   </div>
 
   <div class="single_episode_info_2">
-    <h2>Characters in the episode <span style="color: #814110">{{singleComponent.episode}}</span></h2>
+    <h2><i>The characters of the episode:</i> <span style="color: #814110; padding-left: 5px"> {{singleComponent.episode}}</span></h2>
     <div class="buttons_block">
       <div class="characters_url" *ngFor="let url of characterUrls">
         <button routerLink="{{url}}" mat-raised-button>Character - {{url.split('/').slice(-1)}}</button>

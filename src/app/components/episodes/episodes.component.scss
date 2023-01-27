@@ -1,11 +1,35 @@
 .wrap_episodes {
   width: 100%;
   padding-right: 3%;
+  margin-top: 35px;
+  position: relative;
+
+  .episode_title{
+    position: absolute;
+    left: 23%;
+    top: -15px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   .main_content {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+
+
+    .filter_episodes{
+      margin-top: 30px;
+      width: 15%;
+    }
+
+    .wrap_episodes {
+      width:85%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+    }
 
     .select {
       position: fixed;
@@ -68,13 +92,7 @@
     }
   }
 
-  .wrap_episodes {
-    width:85%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
-  }
 }
 .pagination{
   display: block;
@@ -87,9 +105,7 @@ app-episode {
   margin: 5px 1%;
 }
 
-app-episodes-filter {
-  width: 15%;
-}
+
 
 
 

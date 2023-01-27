@@ -2,6 +2,16 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+
+  .character_title{
+    position: absolute;
+    left: 16%;
+    top: -15px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   .character_multiple_container {
     width: 48%;
@@ -9,8 +19,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 5px;
+    margin: 30px 5px 0 5px;
     color: silver;
+
 
     a {
       color: grey;

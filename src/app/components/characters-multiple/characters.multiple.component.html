@@ -1,4 +1,5 @@
 <div class="character_multiple_wrap" *ngIf="!error;else pageError">
+  <span class="character_title">Characters</span>
   <div class="character_multiple_container" *ngFor="let character of characters">
     <div class="main_multiple_character">
       <div class="image_info">
@@ -8,7 +9,7 @@
             <img src="{{character.image}}" alt="img:{{character.name}}"/>
           </a>
           <h4>{{character.name}}</h4>
-          <h5>created: {{character.created.split('T').splice(0,1)}}</h5>
+          <h5>created: {{character.created.split('T').splice(0, 1)}}</h5>
         </div>
       </div>
       <div class="multiple_character_info">
@@ -28,7 +29,7 @@
           <div class="status_circle background_brown" *ngIf="character.status === 'Dead'"></div>
         </div>
         <p *ngIf="character.type">type: {{character.type}} </p>
-        <p *ngIf="!character.type">type: <i>no info</i> </p>
+        <p *ngIf="!character.type">type: <i>no info</i></p>
         <p>gender: {{character.gender}}</p>
       </div>
     </div>

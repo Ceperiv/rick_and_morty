@@ -1,6 +1,17 @@
 .wrap_locations {
   display: flex;
-  padding-right: 3%  ;
+  margin-top: 80px;
+  padding-right: 3%;
+  position: relative;
+
+  .location_title{
+    position: absolute;
+    left: 20%;
+    top: -50px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   .filter_locations {
     width: 15%;

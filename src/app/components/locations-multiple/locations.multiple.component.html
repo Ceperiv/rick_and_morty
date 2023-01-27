@@ -1,7 +1,10 @@
 <div class="wrap_multiple_location" *ngFor="let location of locations">
-
+  <span class="location_title">Locations</span>
   <div class="common_block">
-    <div class="block_location_info"><h2>{{location.name}}</h2>
+    <div class="block_location_info">
+      <a routerLink="/locations/{{location.id}}">
+        <h2>{{location.name}}</h2>
+      </a>
       <h3>type: {{location.type}}</h3>
       <h4>{{location.dimension}}</h4>
       <p>created: {{location.created}}

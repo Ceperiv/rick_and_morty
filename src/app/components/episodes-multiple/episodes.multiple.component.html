@@ -1,6 +1,8 @@
 <div *ngFor="let episode of episodes">
   <div class="wrap_multiple_episode" *ngIf="!error; else pageError">
 
+    <span class="episode_title">Episodes</span>
+
     <div class="multiple_episode_info_1">
       <h1><span style="font-weight: 100">Episode name: </span> <a routerLink="/episodes/{{episode.id}}">{{episode.name}}</a></h1>
       <h3>air date: {{episode.air_date}}</h3>

@@ -1,6 +1,17 @@
 .wrap_multiple_episode {
   width: 100%;
   display: flex;
+  position: relative;
+  color: silver;
+
+  .episode_title{
+    position: absolute;
+    left: 23%;
+    top: -15px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   .multiple_episode_info_1 {
     width: 30%;
@@ -34,7 +45,7 @@
     }
 
     a {
-      color: silver;
+      color: grey;
       font-weight: 500;
       letter-spacing: .1rem;
       cursor: pointer;

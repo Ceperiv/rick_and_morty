@@ -2,6 +2,16 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  .character_title{
+    position: absolute;
+    left: 16%;
+    top: -15px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   a, a:hover, a:active {
     transition: 0.3s;

@@ -1,37 +1,50 @@
 .wrap_single_episode {
   width: 100%;
   display: flex;
+  position: relative;
+  color: silver;
+
+  .episode_title {
+    position: absolute;
+    left: 23%;
+    top: -15px;
+    font-size: 50px;
+    letter-spacing: 5rem;
+    color: #332f2f;
+  }
 
   a {
     color: gray;
   }
 
-  .single_episode_info_1{
+  .single_episode_info_1 {
     width: 30%;
     padding: 50px 5px;
   }
-  .single_episode_info_2{
+
+  .single_episode_info_2 {
     width: 69%;
     padding: 50px 5px;
   }
 
-  .buttons_block{
+  .buttons_block {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-  .characters_url {
-    border: #282828 1px solid;
-    border-radius: 5px;
-    margin: 2px;
-    padding: 0 2px;
-    button{
-      width: 200px;
-      background: #b27241;
-    }
+.characters_url {
+  border: #282828 1px solid;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 0 2px;
 
+  button {
+    width: 200px;
+    background: #b27241;
   }
+
+}
 
 ::ng-deep.mat-expansion-panel-body {
   display: flex;
