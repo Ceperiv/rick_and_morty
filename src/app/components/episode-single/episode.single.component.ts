@@ -43,10 +43,6 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.singleComponent.characters.map(value => {
-      const characterId = value.split('/').splice(-1).toString()
-      const characterUrl = `/characters/${characterId ? characterId : ''}`
-      this.characterUrls.push(characterUrl)
-    })
+
   }
 }

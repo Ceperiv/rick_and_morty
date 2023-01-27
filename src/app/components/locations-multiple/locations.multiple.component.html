@@ -1,6 +1,6 @@
-<div class="wrap_multiple_location" *ngFor="let location of locations">
+<div class="wrap_multiple_location" *ngIf="locations">
   <span class="location_title">Locations</span>
-  <div class="common_block">
+  <div *ngFor="let location of locations" class="common_block">
     <div class="block_location_info">
       <a routerLink="/locations/{{location.id}}">
         <h2>{{location.name}}</h2>

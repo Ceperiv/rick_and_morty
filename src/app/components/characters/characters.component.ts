@@ -1,26 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs";
 
 import {ICharacter, IPaginated} from "../../interfaces";
-import {CheckboxService, MultipleComponentsService} from "../../services";
+import {CheckboxService, CountInfoService, MultipleComponentsService} from "../../services";
 
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent implements OnInit, AfterViewInit {
   characters: ICharacter[] = [];
   total_pages: number;
   selectedCharactersId: number;
   isVisible: boolean = false;
   allSelectedIds: Array<number> = []
+  countInfo:{}
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
               private router: Router,
-              private checkboxService: CheckboxService) {
+              private checkboxService: CheckboxService,
+              private countInfoService:CountInfoService) {
     this.cleanList()
   };
 
@@ -33,6 +35,9 @@ export class CharactersComponent implements OnInit {
     })
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
+
+    this.countInfoService.getTotalInfo()
+    console.log(this.countInfoService.getCountInfo());
   };
 
   selected() {
@@ -60,4 +65,10 @@ export class CharactersComponent implements OnInit {
     this.characters.map(value => this.allSelectedIds.push(value.id))
     this.multipleComponentsService.setManyIds(this.allSelectedIds)
   };
+
+  ngAfterViewInit(): void {
+    this.countInfoService.getTotalInfo()
+    console.log(this.countInfoService.getCountInfo());
+
+  }
 }

@@ -1,6 +1,6 @@
 <div class="wrap_single_character" *ngIf="!error; else pageError">
   <span class="character_title">Character</span>
-  <div  class="main_single_character">
+  <div *ngIf="singleComponent" class="main_single_character">
     <div class="image_info">
       <h1>{{singleComponent.name}}</h1>
       <div class="image">
@@ -10,18 +10,20 @@
         </a>
 
         <h4>{{singleComponent.name}}</h4>
-        <h5>created: {{singleComponent.created.split('T').splice(0,1)}}</h5>
+        <h5>created: {{singleComponent.created.split('T').splice(0, 1)}}</h5>
       </div>
     </div>
     <div class="single_character_info">
       <h2>Origin name:
-        <a routerLink="{{originUrl}}">
+        <a *ngIf="singleComponent.origin.name !== 'unknown'"
+           routerLink="/locations/{{singleComponent.origin.url.split('/').splice(-1)}}">
           <h4>{{singleComponent.origin.name}}</h4>
         </a>
+        <h4 *ngIf="singleComponent.origin.name === 'unknown'">{{singleComponent.origin.name}}</h4>
       </h2>
 
       <h2>Location name:
-        <a routerLink="{{locationUrl}}">
+        <a routerLink="/locations/{{singleComponent.location.url.split('/').splice(-1)}}">
           <h4>{{singleComponent.location.name}}</h4>
         </a>
       </h2>
@@ -32,11 +34,11 @@
         <div class="status_circle background_brown" *ngIf="singleComponent.status === 'Dead'"></div>
       </div>
       <p *ngIf="singleComponent.type">type: {{singleComponent.type}}</p>
-      <p *ngIf="!singleComponent.type">type: <i>no info</i> </p>
+      <p *ngIf="!singleComponent.type">type: <i>no info</i></p>
       <p>gender: {{singleComponent.gender}}</p>
     </div>
   </div>
-  <div class="character_episodes">
+  <div ng *ngIf="singleComponent" class="character_episodes">
     <mat-accordion>
       <mat-expansion-panel style="background: #282828" (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
@@ -48,7 +50,7 @@
             <i>click to {{panelOpenState ? 'close' : 'open'}}</i>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="episodes_url" *ngFor="let episodeUrl of episodeUrls">
+        <div class="episodes_url" *ngFor="let episodeUrl of singleComponent.episode">
           <a routerLink="/episodes/{{episodeUrl.split('/').splice(-1)}}">
             <h4>Episode - {{episodeUrl.split('/').slice(-1)}}</h4>
           </a>

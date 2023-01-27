@@ -1,11 +1,11 @@
 <div class="wrap_single_location" *ngIf="!error; else pageError">
   <span class="location_title">Location</span>
-  <div class="block_location_info"><h2>{{singleComponent.name}}</h2>
+  <div *ngIf="singleComponent" class="block_location_info"><h2>{{singleComponent.name}}</h2>
     <h3>type: {{singleComponent.type}}</h3>
     <h4>{{singleComponent.dimension}}</h4>
     <p>created: {{singleComponent.created.split('T').splice(0,1)}}</div>
-  <div class="block_residents_url">
-    <div class="resident" *ngFor="let url of residentsUrls">
+  <div *ngIf="singleComponent" class="block_residents_url">
+    <div class="resident" *ngFor="let url of singleComponent.residents">
       <a routerLink="/characters/{{url.split('/').splice(-1)}}">
         Character - {{url.split('/').splice(-1)}}
       </a>

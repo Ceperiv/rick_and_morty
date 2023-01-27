@@ -10,7 +10,7 @@ import {IEpisode, IPageError} from "../../interfaces";
   styleUrls: ['./episodes.multiple.component.scss']
 })
 export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
-  episodes: IEpisode[];
+  episodes: IEpisode[] = [];
   ids: Array<number> = [];
   error: IPageError;
   panelOpenState: boolean = false;
@@ -25,7 +25,7 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
         {
           next: (value) => {
             this.episodes = value
-            this.episodes?.map(value => {
+            this.episodes.map(value => {
               this.ids.push(value.id)
             })
             this.multipleComponentsService.cleanIds()

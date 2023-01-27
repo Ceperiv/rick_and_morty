@@ -2,17 +2,17 @@
 
   <span class="episode_title">Episode</span>
 
-  <div class="single_episode_info_1">
+  <div *ngIf="singleComponent" class="single_episode_info_1">
     <h1><span style="font-weight: 100">Episode name:</span> {{singleComponent.name}}</h1>
     <h3>air date: {{singleComponent.air_date}}</h3>
     <p>created: {{singleComponent.created.split('T').splice(0,1)}}</p>
   </div>
 
-  <div class="single_episode_info_2">
+  <div *ngIf="singleComponent" class="single_episode_info_2">
     <h2><i>The characters of the episode:</i> <span style="color: #814110; padding-left: 5px"> {{singleComponent.episode}}</span></h2>
     <div class="buttons_block">
-      <div class="characters_url" *ngFor="let url of characterUrls">
-        <button routerLink="{{url}}" mat-raised-button>Character - {{url.split('/').slice(-1)}}</button>
+      <div class="characters_url" *ngFor="let url of singleComponent.characters">
+        <button routerLink="/characters/{{url.split('/').slice(-1)}}" mat-raised-button>Character - {{url.split('/').slice(-1)}}</button>
       </div>
     </div>
   </div>

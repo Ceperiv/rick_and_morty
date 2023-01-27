@@ -1,5 +1,5 @@
 <div *ngIf="!error;else pageError" class="block_character">
-  <div class="image">
+  <div *ngIf="character" class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
     <div class="block_shadow" (click)="submit()"></div>
     <div class="position_absolute"><span style="font-size:15px">{{character.status}}</span>
@@ -9,7 +9,7 @@
 
     </div>
   </div>
-  <div class="name">
+  <div *ngIf="character" class="name">
     <a (click)="submit()"><span class="character_name">{{character.name}}</span></a>
     <label (click)="select()">
       <input class="checkbox {{classActive && 'active'}}" type="checkbox" [checked]="classActive">

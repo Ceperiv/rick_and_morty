@@ -40,7 +40,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatStepperModule} from "@angular/material/stepper";
 import { LocationsFilterComponent } from './components/locations-filter/locations.filter.component';
 import { LocationsMultipleComponent } from './components/locations-multiple/locations.multiple.component';
-import { CarouselComponent } from './layouts/carousel/carousel.component';
+import { CarouselComponent } from './layouts';
 
 @NgModule({
   declarations: [

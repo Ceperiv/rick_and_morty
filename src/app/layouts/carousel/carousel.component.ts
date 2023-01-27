@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+
 import {ICharacter} from "../../interfaces";
-import {MultipleComponentsService} from "../../services";
-import {CarouselService} from "../../services/carousel.service";
+import {CarouselService} from "../../services";
 
 @Component({
   selector: 'app-carousel',
@@ -9,15 +9,11 @@ import {CarouselService} from "../../services/carousel.service";
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-
   randomId: Array<number> = [...Array(20)].map(() => (Math.floor(Math.random() * 800)))
   characters: ICharacter[]
 
-
   constructor(private carouselService: CarouselService) {
-
     this.carouselService.setCarouselIds(this.randomId)
-
   }
 
   ngOnInit(): void {
@@ -25,6 +21,5 @@ export class CarouselComponent implements OnInit {
       this.characters = value
       this.carouselService.cleanRandomIds()
     })
-
   }
 }

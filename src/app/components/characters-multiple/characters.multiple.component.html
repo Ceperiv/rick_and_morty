@@ -1,57 +1,59 @@
 <div class="character_multiple_wrap" *ngIf="!error;else pageError">
   <span class="character_title">Characters</span>
-  <div class="character_multiple_container" *ngFor="let character of characters">
-    <div class="main_multiple_character">
-      <div class="image_info">
-        <h1>{{character.name}}</h1>
-        <div class="image">
-          <a routerLink="/characters/{{character.id}}" title="{{character.name}}">
-            <img src="{{character.image}}" alt="img:{{character.name}}"/>
-          </a>
-          <h4>{{character.name}}</h4>
-          <h5>created: {{character.created.split('T').splice(0, 1)}}</h5>
-        </div>
-      </div>
-      <div class="multiple_character_info">
-        <h2>Origin name:
-          <a routerLink="/locations/{{character.origin.url.split('/').slice(-1)}}">
-            <h4>{{character.origin.name}}</h4>
-          </a>
-        </h2>
-        <h2>Location name:
-          <a routerLink="/locations/{{character.location.url.split('/').slice(-1)}}">
-            <h4>{{character.location.name}}</h4>
-          </a>
-        </h2>
-        <p>species: {{character.species}}</p>
-        <div class="character_status"><p>status: {{character.status}}</p>
-          <div class="status_circle background_green" *ngIf="character.status === 'Alive'"></div>
-          <div class="status_circle background_brown" *ngIf="character.status === 'Dead'"></div>
-        </div>
-        <p *ngIf="character.type">type: {{character.type}} </p>
-        <p *ngIf="!character.type">type: <i>no info</i></p>
-        <p>gender: {{character.gender}}</p>
-      </div>
-    </div>
-
-    <div class="character_episodes">
-      <mat-accordion>
-        <mat-expansion-panel style="background: #282828">
-          <mat-expansion-panel-header>
-            <mat-panel-title style="padding-top: 15px">
-              <h2>Episodes</h2>
-            </mat-panel-title>
-            <mat-panel-description>
-              <i>review</i>
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <div class="episodes_url" *ngFor="let episodeUrl of character.episode">
-            <a routerLink="/episodes/{{episodeUrl.split('/').slice(-1)}}">
-              <h4>Episode - {{episodeUrl.split('/').slice(-1)}}</h4>
+  <div style="display: flex" *ngIf="characters">
+    <div class="character_multiple_container" *ngFor="let character of characters">
+      <div class="main_multiple_character">
+        <div class="image_info">
+          <h1>{{character.name}}</h1>
+          <div class="image">
+            <a routerLink="/characters/{{character.id}}" title="{{character.name}}">
+              <img src="{{character.image}}" alt="img:{{character.name}}"/>
             </a>
+            <h4>{{character.name}}</h4>
+            <h5>created: {{character.created.split('T').splice(0, 1)}}</h5>
           </div>
-        </mat-expansion-panel>
-      </mat-accordion>
+        </div>
+        <div class="multiple_character_info">
+          <h2>Origin name:
+            <a routerLink="/locations/{{character.origin.url.split('/').slice(-1)}}">
+              <h4>{{character.origin.name}}</h4>
+            </a>
+          </h2>
+          <h2>Location name:
+            <a routerLink="/locations/{{character.location.url.split('/').slice(-1)}}">
+              <h4>{{character.location.name}}</h4>
+            </a>
+          </h2>
+          <p>species: {{character.species}}</p>
+          <div class="character_status"><p>status: {{character.status}}</p>
+            <div class="status_circle background_green" *ngIf="character.status === 'Alive'"></div>
+            <div class="status_circle background_brown" *ngIf="character.status === 'Dead'"></div>
+          </div>
+          <p *ngIf="character.type">type: {{character.type}} </p>
+          <p *ngIf="!character.type">type: <i>no info</i></p>
+          <p>gender: {{character.gender}}</p>
+        </div>
+      </div>
+
+      <div class="character_episodes">
+        <mat-accordion>
+          <mat-expansion-panel style="background: #282828">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="padding-top: 15px">
+                <h2>Episodes</h2>
+              </mat-panel-title>
+              <mat-panel-description>
+                <i>review</i>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="episodes_url" *ngFor="let episodeUrl of character.episode">
+              <a routerLink="/episodes/{{episodeUrl.split('/').slice(-1)}}">
+                <h4>Episode - {{episodeUrl.split('/').slice(-1)}}</h4>
+              </a>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
     </div>
   </div>
 </div>

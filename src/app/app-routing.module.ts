@@ -3,20 +3,24 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainLayoutsComponent} from "./layouts"
 import {
   CharactersComponent,
-  CharacterSingleComponent, CharactersMultipleComponent,
+  CharacterSingleComponent,
+  CharactersMultipleComponent,
   EpisodesComponent,
   EpisodeSingleComponent,
-  LocationsComponent, LocationSingleComponent
+  Error404Component,
+  LocationsComponent,
+  LocationSingleComponent
 } from "./components";
 import {TotalResolver} from "./services";
-import {Error404Component} from "./components";
 import {EpisodesMultipleComponent} from "./components/episodes-multiple/episodes.multiple.component";
 import {LocationsMultipleComponent} from "./components/locations-multiple/locations.multiple.component";
 
 
 const routes: Routes = [
+
   {
     path: '', component: MainLayoutsComponent, children: [
+
       {
         path: 'characters',
         runGuardsAndResolvers: 'paramsOrQueryParamsChange',

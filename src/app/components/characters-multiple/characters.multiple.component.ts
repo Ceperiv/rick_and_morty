@@ -10,7 +10,7 @@ import {ICharacter, IPageError} from "../../interfaces";
   styleUrls: ['./characters.multiple.component.scss']
 })
 export class CharactersMultipleComponent implements OnInit, AfterContentInit {
-  characters: ICharacter[];
+  characters: ICharacter[] = [];
   ids: Array<number> = [];
   error: IPageError;
 
@@ -25,7 +25,7 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
         {
           next: (value) => {
             this.characters = value
-            this.characters?.map(value => {
+            this.characters.map(value => {
               this.ids.push(value.id)
             })
             this.multipleComponentsService.cleanIds()

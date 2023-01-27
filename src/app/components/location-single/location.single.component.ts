@@ -42,10 +42,6 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.singleComponent.residents.map(value => {
-      const characterId = value.split('/').splice(-1)
-      const characterUrl = `/characters/${characterId ? characterId : ''}`
-      this.residentsUrls.push(characterUrl)
-    })
+
   }
 }
