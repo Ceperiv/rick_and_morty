@@ -40,10 +40,30 @@
     }
 
     .position_absolute {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       position: absolute;
       left: 5px;
       bottom: 5px;
       margin: 0;
+
+      .status_circle {
+        margin-left: 4px;
+        width: 10px;
+        height: 10px;
+        border: 1px solid;
+        border-radius: 50%;
+
+      }
+
+      .background_green {
+        background: green;
+      }
+      .background_brown {
+        background: brown;
+      }
     }
   }
 
@@ -51,7 +71,7 @@
     margin: 0;
     position: relative;
 
-    .character_name{
+    .character_name {
       font-size: 1.2rem;
     }
 
@@ -86,6 +106,7 @@
     margin: 0;
 
   }
+
   .name a:hover {
     cursor: pointer;
     color: #b27241;

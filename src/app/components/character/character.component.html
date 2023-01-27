@@ -2,7 +2,12 @@
   <div class="image">
     <img class="img" src="{{character.image}}" alt="img:{{character.name}}"/>
     <div class="block_shadow" (click)="submit()"></div>
-    <h5 class="position_absolute">{{character.created.split('T').splice(-2, 1)}}</h5>
+    <div class="position_absolute"><span style="font-size:15px">{{character.status}}</span>
+
+      <div class="status_circle background_green" *ngIf="character.status === 'Alive'"></div>
+      <div class="status_circle background_brown" *ngIf="character.status === 'Dead'"></div>
+
+    </div>
   </div>
   <div class="name">
     <a (click)="submit()"><span class="character_name">{{character.name}}</span></a>

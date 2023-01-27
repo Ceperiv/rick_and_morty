@@ -26,8 +26,11 @@
       </h2>
 
       <p>species: {{singleComponent.species}}</p>
-      <p>status: {{singleComponent.status}}</p>
-      <p *ngIf="singleComponent.type">type: {{singleComponent.type}} </p>
+      <div class="character_status"><p>status: {{singleComponent.status}}</p>
+        <div class="status_circle background_green" *ngIf="singleComponent.status === 'Alive'"></div>
+        <div class="status_circle background_brown" *ngIf="singleComponent.status === 'Dead'"></div>
+      </div>
+      <p *ngIf="singleComponent.type">type: {{singleComponent.type}}</p>
       <p *ngIf="!singleComponent.type">type: <i>no info</i> </p>
       <p>gender: {{singleComponent.gender}}</p>
     </div>

@@ -10,9 +10,10 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0 5px;
+    color: silver;
 
     a {
-      color: silver;
+      color: grey;
     }
 
     .main_single_character {
@@ -38,6 +39,26 @@
 
       .single_character_info {
         padding: 50px 20px;
+        .character_status {
+          display: flex;
+
+          .status_circle {
+            margin-left: 4px;
+            margin-top: 6px;
+            width: 10px;
+            height: 10px;
+            border: 1px solid;
+            border-radius: 50%;
+
+          }
+
+          .background_green {
+            background: green;
+          }
+          .background_brown {
+            background: brown;
+          }
+        }
       }
     }
 

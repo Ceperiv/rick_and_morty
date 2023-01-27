@@ -23,7 +23,10 @@
           </a>
         </h2>
         <p>species: {{character.species}}</p>
-        <p>status: {{character.status}}</p>
+        <div class="character_status"><p>status: {{character.status}}</p>
+          <div class="status_circle background_green" *ngIf="character.status === 'Alive'"></div>
+          <div class="status_circle background_brown" *ngIf="character.status === 'Dead'"></div>
+        </div>
         <p *ngIf="character.type">type: {{character.type}} </p>
         <p *ngIf="!character.type">type: <i>no info</i> </p>
         <p>gender: {{character.gender}}</p>
