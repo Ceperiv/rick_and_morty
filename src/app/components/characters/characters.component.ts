@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs";
 
-import {ICharacter, IPaginated} from "../../interfaces";
+import {ICharacter, ICountInfo, IPaginated} from "../../interfaces";
 import {CheckboxService, CountInfoService, MultipleComponentsService} from "../../services";
 
 @Component({
@@ -16,7 +16,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   selectedCharactersId: number;
   isVisible: boolean = false;
   allSelectedIds: Array<number> = []
-  countInfo:{}
+  countInfo:ICountInfo
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
@@ -27,6 +27,8 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
+
+
     this.activatedRoute.data.pipe(
       map(value => value['data'] as IPaginated<ICharacter>)
     ).subscribe((value) => {
@@ -35,9 +37,6 @@ export class CharactersComponent implements OnInit, AfterViewInit {
     })
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
-
-    this.countInfoService.getTotalInfo()
-    console.log(this.countInfoService.getCountInfo());
   };
 
   selected() {
@@ -67,7 +66,12 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    this.countInfoService.getTotalInfo()
+
+      console.log(this.countInfoService.getCountInfo());
+  }
+
+
+  xxx() {
     console.log(this.countInfoService.getCountInfo());
 
   }

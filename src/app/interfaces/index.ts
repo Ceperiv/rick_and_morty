@@ -1,5 +1,6 @@
 export * from './character-filter-interface/index'
 export * from './character-interface/index'
+export * from './count-info-interface/index'
 export * from './episode-filter-interface/index'
 export * from './episode-interface/index'
 export * from './location-filter-interface/index'

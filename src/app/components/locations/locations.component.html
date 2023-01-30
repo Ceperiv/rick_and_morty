@@ -9,7 +9,7 @@
     <app-locations-filter></app-locations-filter>
   </div>
 
-  <main class="main_locations">
+  <main *ngIf="locations" class="main_locations">
     <app-location *ngFor="let location of locations" [location]="location"></app-location>
   </main>
 

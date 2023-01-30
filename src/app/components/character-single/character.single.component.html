@@ -23,9 +23,10 @@
       </h2>
 
       <h2>Location name:
-        <a routerLink="/locations/{{singleComponent.location.url.split('/').splice(-1)}}">
+        <a *ngIf="singleComponent.location.name !== 'unknown'" routerLink="/locations/{{singleComponent.location.url.split('/').splice(-1)}}">
           <h4>{{singleComponent.location.name}}</h4>
         </a>
+        <h4 *ngIf="singleComponent.location.name === 'unknown'">{{singleComponent.location.name}}</h4>
       </h2>
 
       <p>species: {{singleComponent.species}}</p>
