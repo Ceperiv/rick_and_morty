@@ -1,8 +1,8 @@
 <div class="wrap_home">
   <div *ngIf="countInfo; else loading" class="count_info">
-    <button class="color_silver" mat-raised-button>Characters: {{countInfo.characters}}</button>
-    <button class="color_silver" mat-raised-button>Episodes: {{countInfo.episodes}}</button>
-    <button class="color_silver" mat-raised-button>Locations: {{countInfo.locations}}</button>
+    <button routerLink="/characters" class="color_silver" mat-raised-button>Characters ~ {{countInfo.characters}}</button>
+    <button routerLink="/episodes" class="color_silver" mat-raised-button>Episodes ~ {{countInfo.episodes}}</button>
+    <button routerLink="/locations" class="color_silver" mat-raised-button>Locations ~ {{countInfo.locations}}</button>
   </div>
 </div>
 
