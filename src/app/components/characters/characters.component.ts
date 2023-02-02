@@ -16,18 +16,17 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   selectedCharactersId: number;
   isVisible: boolean = false;
   allSelectedIds: Array<number> = []
-  countInfo:ICountInfo
+  countInfo: ICountInfo
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
               private router: Router,
               private checkboxService: CheckboxService,
-              private countInfoService:CountInfoService) {
+              private countInfoService: CountInfoService) {
     this.cleanList()
   };
 
   ngOnInit(): void {
-
 
     this.activatedRoute.data.pipe(
       map(value => value['data'] as IPaginated<ICharacter>)
@@ -37,6 +36,8 @@ export class CharactersComponent implements OnInit, AfterViewInit {
     })
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
+
+
   };
 
   selected() {
@@ -66,13 +67,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-
-      console.log(this.countInfoService.getCountInfo());
+    this.countInfoService.getCountInfo().then(value => this.countInfo = value);
   }
 
-
-  xxx() {
-    console.log(this.countInfoService.getCountInfo());
-
-  }
 }

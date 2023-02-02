@@ -1,4 +1,4 @@
-<div *ngIf="characters" class="wrap_carousel" >
+<div *ngIf="characters;else progressSpinner" class="wrap_carousel" >
 
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -91,3 +91,6 @@
   </div>
 
 </div>
+
+
+<ng-template #progressSpinner></ng-template>

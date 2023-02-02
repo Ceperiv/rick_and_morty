@@ -7,7 +7,7 @@ import {
   CharactersMultipleComponent,
   EpisodesComponent,
   EpisodeSingleComponent,
-  Error404Component,
+  Error404Component, HomeComponent,
   LocationsComponent,
   LocationSingleComponent
 } from "./components";
@@ -19,8 +19,18 @@ import {LocationsMultipleComponent} from "./components/locations-multiple/locati
 const routes: Routes = [
 
   {
-    path: '', component: MainLayoutsComponent, children: [
+    path: '', component: MainLayoutsComponent,  children: [
 
+      {
+        path: '',
+        redirectTo:'home',
+        pathMatch:'full'
+      },
+
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
       {
         path: 'characters',
         runGuardsAndResolvers: 'paramsOrQueryParamsChange',

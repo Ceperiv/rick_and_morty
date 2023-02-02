@@ -41,6 +41,8 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { LocationsFilterComponent } from './components/locations-filter/locations.filter.component';
 import { LocationsMultipleComponent } from './components/locations-multiple/locations.multiple.component';
 import { CarouselComponent } from './layouts';
+import { HomeComponent } from './components/home/home.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -67,27 +69,29 @@ import { CarouselComponent } from './layouts';
     LocationsFilterComponent,
     LocationsMultipleComponent,
     CarouselComponent,
+    HomeComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    RouterOutlet,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    ReactiveFormsModule,
-    MatCheckboxModule,
-    MatTreeModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatExpansionModule,
-    MatMenuModule,
-    MatStepperModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        RouterOutlet,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        ReactiveFormsModule,
+        MatCheckboxModule,
+        MatTreeModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatExpansionModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

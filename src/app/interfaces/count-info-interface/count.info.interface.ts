@@ -1,6 +1,6 @@
 export interface ICountInfo {
-  characters?:number,
-  episodes?:number,
-  locations?:number,
+  characters:number,
+  episodes:number,
+  locations:number,
 
 }

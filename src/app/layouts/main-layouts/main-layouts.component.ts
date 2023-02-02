@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, NavigationStart, Router} from "@angular/router";
 
-import {LoadingService} from "../../services";
+import {CountInfoService, LoadingService} from "../../services";
 
 @Component({
   selector: 'app-main-layouts',
@@ -11,10 +11,14 @@ import {LoadingService} from "../../services";
 export class MainLayoutsComponent implements OnInit {
   isLoading: boolean
 
-  constructor(private loadingService: LoadingService, private router: Router) {
+  constructor(private loadingService: LoadingService,
+  private router: Router,
+              private countInfoService:CountInfoService) {
+
   }
 
   ngOnInit(): void {
+    this.countInfoService.loadCountInfo()
     this.loadingService.isLoading().subscribe(value => this.isLoading = value);
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationStart) {

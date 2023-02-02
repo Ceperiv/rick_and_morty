@@ -14,7 +14,6 @@ export class QueryParamsService {
   };
 
   getQueryParams(): Observable<IQueryParams> {
-    console.log(this.queryParams)
     return this.queryParams
   };
 
