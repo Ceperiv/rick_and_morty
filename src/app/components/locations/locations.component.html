@@ -1,5 +1,4 @@
 <div class="wrap_locations">
-
   <span class="location_title">Locations</span>
   <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
   <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
@@ -7,6 +6,7 @@
 
   <div class="filter_locations">
     <app-locations-filter></app-locations-filter>
+    <app-count-info></app-count-info>
   </div>
 
   <main *ngIf="locations" class="main_locations">

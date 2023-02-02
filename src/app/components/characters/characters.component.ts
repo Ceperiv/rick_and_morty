@@ -16,7 +16,6 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   selectedCharactersId: number;
   isVisible: boolean = false;
   allSelectedIds: Array<number> = []
-  countInfo: ICountInfo
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
@@ -67,7 +66,7 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    this.countInfoService.getCountInfo().then(value => this.countInfo = value);
+
   }
 
 }

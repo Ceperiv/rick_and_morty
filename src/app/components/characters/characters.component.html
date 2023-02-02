@@ -6,17 +6,10 @@
     <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
     <div class="filter_characters">
       <app-characters-filter></app-characters-filter>
-      <div *ngIf="countInfo; else loading" class="count_info">
-        <p class="color_silver">Characters: {{countInfo.characters}}</p>
-        <p class="color_silver">Episodes: {{countInfo.episodes}}</p>
-        <p class="color_silver">Locations: {{countInfo.locations}}</p>
-      </div>
-
-
-
+      <app-count-info></app-count-info>
     </div>
     <main *ngIf="characters" class="wrap_characters">
-      <app-character  *ngFor="let character of characters" [character]="character"></app-character>
+      <app-character *ngFor="let character of characters" [character]="character"></app-character>
     </main>
   </main>
   <div class="pagination">
@@ -24,10 +17,6 @@
   </div>
 </div>
 
-<ng-template #loading>
-  <div class="count_info">
-    <mat-progress-bar style="width: 60%" mode="indeterminate"></mat-progress-bar>
-  </div>
-</ng-template>
+
 
 

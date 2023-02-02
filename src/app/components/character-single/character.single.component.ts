@@ -26,20 +26,18 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.singleComponent = this.singleComponentService.getSingleInfo.character();
 
-    this.activatedRoute.params.subscribe(({id}) => {
-
-        this.totalService.getById.character(id).subscribe({
-          next: (value) => {
-            this.singleComponent = value;
-          },
-          error: (e) => this.error = {message: e.error.error, status: e.status}
-        });
-
-    });
   };
 
   ngAfterViewInit(): void {
+    this.activatedRoute.params.subscribe(({id}) => {
+      this.totalService.getById.character(id).subscribe({
+        next: (value) => {
+          this.singleComponent = value;
+        },
+        error: (e) => this.error = {message: e.error.error, status: e.status}
+      });
 
+    });
 
   };
 }

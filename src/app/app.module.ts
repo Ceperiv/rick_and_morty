@@ -43,6 +43,7 @@ import { LocationsMultipleComponent } from './components/locations-multiple/loca
 import { CarouselComponent } from './layouts';
 import { HomeComponent } from './components/home/home.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { CountInfoComponent } from './components/count-info/count.info.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     LocationsMultipleComponent,
     CarouselComponent,
     HomeComponent,
+    CountInfoComponent,
   ],
     imports: [
         HttpClientModule,
