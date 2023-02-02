@@ -2,6 +2,7 @@
   <span class="location_title">Locations</span>
   <div *ngFor="let location of locations" class="common_block">
     <div class="block_location_info">
+      <mat-spinner *ngIf="!location" style="width: 20%"></mat-spinner>
       <a routerLink="/locations/{{location.id}}">
         <h2>{{location.name}}</h2>
       </a>

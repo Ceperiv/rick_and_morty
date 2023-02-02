@@ -37,7 +37,7 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.activatedRoute.params.subscribe(({ids}) => {
       if (ids.length === 1) {
-        this.error = {message: 'characters/multiple cannot take single value... example(1,2,4,9)', status: 404}
+        this.error = {message: 'characters/multiple - cannot take one value... example(1,2,4,9)', status: 404}
       }
       if (!this.ids || this.ids.toString() !== ids.toString()) {
         this.ids = []

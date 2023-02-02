@@ -1,6 +1,6 @@
 <div class="wrap_single_character" *ngIf="!error; else pageError">
   <span class="character_title">Character</span>
-  <div *ngIf="singleComponent" class="main_single_character">
+  <div *ngIf="singleComponent; else loading" class="main_single_character">
     <div class="image_info">
       <h1>{{singleComponent.name}}</h1>
       <div class="image">
@@ -39,7 +39,7 @@
       <p>gender: {{singleComponent.gender}}</p>
     </div>
   </div>
-  <div ng *ngIf="singleComponent" class="character_episodes">
+  <div *ngIf="singleComponent" class="character_episodes">
     <mat-accordion>
       <mat-expansion-panel style="background: #282828" (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
@@ -65,4 +65,10 @@
 <ng-template #pageError>
   <h1>{{error.message}}:(</h1>
   <h4> error: {{error.status}}</h4>
+</ng-template>
+
+<ng-template #loading>
+  <div class="slide">
+    <mat-spinner style="width: 20%; margin-top: 100px"></mat-spinner>
+  </div>
 </ng-template>

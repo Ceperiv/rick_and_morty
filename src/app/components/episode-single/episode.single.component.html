@@ -2,7 +2,7 @@
 
   <span class="episode_title">Episode</span>
 
-  <div *ngIf="singleComponent" class="single_episode_info_1">
+  <div *ngIf="singleComponent; else loading" class="single_episode_info_1">
     <h1><span style="font-weight: 100">Episode name:</span> {{singleComponent.name}}</h1>
     <h3>air date: {{singleComponent.air_date}}</h3>
     <p>created: {{singleComponent.created.split('T').splice(0,1)}}</p>
@@ -20,6 +20,11 @@
 
 <ng-template #pageError>
   <h1>{{error.message}}:(</h1>
-  <h4> error: {{error.status}}</h4>
+  <h4> error: {{error.status}} </h4>
+</ng-template>
 
+<ng-template #loading>
+  <div class="single_episode_info_1">
+    <mat-spinner style="width: 20%; margin-left: 100px"></mat-spinner>
+  </div>
 </ng-template>

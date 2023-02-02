@@ -1,11 +1,12 @@
 <div class="character_multiple_wrap" *ngIf="!error;else pageError">
   <span class="character_title">Characters</span>
-  <div style="display: flex" *ngIf="characters">
+  <div style="display: flex; flex-wrap: wrap" *ngIf="characters">
     <div class="character_multiple_container" *ngFor="let character of characters">
       <div class="main_multiple_character">
         <div class="image_info">
           <h1>{{character.name}}</h1>
           <div class="image">
+            <mat-spinner *ngIf="!character.image" style="width: 20%; align-items: center"></mat-spinner>
             <a routerLink="/characters/{{character.id}}" title="{{character.name}}">
               <img src="{{character.image}}" alt="img:{{character.name}}"/>
             </a>
@@ -62,3 +63,4 @@
   <h1>{{error.message}}:(</h1>
   <h4> error: {{error.status}}</h4>
 </ng-template>
+
