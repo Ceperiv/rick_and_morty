@@ -19,18 +19,20 @@ export class LocationsMultipleComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.multipleComponentsService.getComponentsById.locations()
-      .subscribe(
-        {
-          next: (value) => {
-            this.locations = value
-            this.locations?.map(value => {
-              this.ids.push(value.id)
-            })
-            this.multipleComponentsService.cleanIds()
-          },
-          error: (e) => console.log(e)
-        })
+    if (!this.ids){
+      this.multipleComponentsService.getComponentsById.locations()
+        .subscribe(
+          {
+            next: (value) => {
+              this.locations = value
+              this.locations?.map(value => {
+                this.ids.push(value.id)
+              })
+              this.multipleComponentsService.cleanIds()
+            },
+            error: (e) => console.log(e)
+          })
+    }
   }
 
   ngAfterViewInit(): void {

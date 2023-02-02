@@ -20,18 +20,20 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit(): void {
-    this.multipleComponentsService.getComponentsById.episodes()
-      .subscribe(
-        {
-          next: (value) => {
-            this.episodes = value
-            this.episodes.map(value => {
-              this.ids.push(value.id)
-            })
-            this.multipleComponentsService.cleanIds()
-          },
-          error: (e) => console.log(e)
-        })
+    if (!this.ids){
+      this.multipleComponentsService.getComponentsById.episodes()
+        .subscribe(
+          {
+            next: (value) => {
+              this.episodes = value
+              this.episodes.map(value => {
+                this.ids.push(value.id)
+              })
+              this.multipleComponentsService.cleanIds()
+            },
+            error: (e) => console.log(e)
+          })
+    }
   }
 
   ngAfterContentInit(): void {
