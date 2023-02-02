@@ -1,6 +1,6 @@
-<div *ngIf="characters;else progressSpinner" class="wrap_carousel" >
+<div class="wrap_carousel" >
 
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleControls" *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="characters/{{characters[0].id}}"> <img src="{{characters[0].image}}" class="d-block w-100" alt="{{characters[0].name}}"></a>
@@ -15,7 +15,7 @@
 
   </div>
 
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/characters/{{characters[3].id}}"> <img src="{{characters[3].image}}" class="d-block w-100" alt="{{characters[3].name}}"></a>
@@ -30,7 +30,7 @@
 
   </div>
 
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/characters/{{characters[6].id}}"> <img src="{{characters[6].image}}" class="d-block w-100" alt="{{characters[6].name}}"></a>
@@ -45,7 +45,7 @@
 
   </div>
 
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/characters/{{characters[9].id}}"> <img src="{{characters[9].image}}" class="d-block w-100" alt="{{characters[9].name}}"></a>
@@ -60,7 +60,7 @@
 
   </div>
 
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/characters/{{characters[12].id}}"> <img src="{{characters[12].image}}" class="d-block w-100" alt="{{characters[12].name}}"></a>
@@ -75,7 +75,7 @@
 
   </div>
 
-  <div class="carousel slide" data-bs-ride="carousel">
+  <div *ngIf="characters; else loading" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/characters/{{characters[15].id}}"> <img src="{{characters[15].image}}" class="d-block w-100" alt="{{characters[15].name}}"></a>
@@ -93,4 +93,8 @@
 </div>
 
 
-<ng-template #progressSpinner></ng-template>
+<ng-template #loading>
+  <div class="slide">
+    <mat-spinner style="width: 20%;"></mat-spinner>
+  </div>
+</ng-template>

@@ -36,9 +36,7 @@ export class CountInfoService {
   getCountInfo(): Promise<ICountInfo> {
     const promise: any = new Promise((resolve) => {
       const interval = setInterval(() => {
-        if (this.countInfo === undefined) {
-          this.loadCountInfo()
-        } else {
+        if (this.countInfo !== undefined) {
           resolve(this.countInfo)
           clearInterval(interval)
         }
