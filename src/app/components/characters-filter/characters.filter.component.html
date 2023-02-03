@@ -1,5 +1,10 @@
 <div class="wrap_character_filter">
 
+  <div *ngIf="errorStatus" class="filter_error">
+    <p>{{error.message}}:(</p>
+    <p> error: {{error.status}}</p>
+  </div>
+
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
     <span>Filter</span>
   </button>
@@ -14,6 +19,7 @@
       <mat-form-field appearance="fill" class="mat-form-field">
         <mat-label>Status</mat-label>
         <mat-select (ngModelChange)="submit()" formControlName="status">
+          <mat-option>-- none --</mat-option>
           <mat-option value="alive">alive</mat-option>
           <mat-option value="dead">dead</mat-option>
           <mat-option value="unknown">unknown</mat-option>
@@ -33,6 +39,7 @@
       <mat-form-field appearance="fill" class="mat-form-field">
         <mat-label>Gender</mat-label>
         <mat-select (ngModelChange)="submit()" formControlName="gender">
+          <mat-option>-- none --</mat-option>
           <mat-option value="female">female</mat-option>
           <mat-option value="male">male</mat-option>
           <mat-option value="unknown">unknown</mat-option>
@@ -45,4 +52,8 @@
     </div>
   </form>
 </div>
+
+
+
+
 

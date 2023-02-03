@@ -1,5 +1,10 @@
 <div class="wrap_episode_filter">
 
+  <div *ngIf="errorStatus" class="filter_error">
+    <p>{{error.message}}:(</p>
+    <p> error: {{error.status}}</p>
+  </div>
+
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
     <span>Filter</span>
   </button>

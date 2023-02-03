@@ -42,8 +42,8 @@ export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode 
 
 
     this.characterParams = this.getClearData({page, name, status, species, type, gender})
-    this.episodeParams = {page, name, episode}
-    this.locationParams = {page, name, type, dimension}
+    this.episodeParams = this.getClearData({page, name, episode})
+    this.locationParams = this.getClearData({page, name, type, dimension})
 
 
     switch (route.url[0].path) {
@@ -65,6 +65,11 @@ export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode 
   }
 
   getClearData(obj: any) {
+    for (let key in obj) {
+      if (obj[key] === '') {
+        delete obj[key]
+      }
+    }
     return obj
   }
 }

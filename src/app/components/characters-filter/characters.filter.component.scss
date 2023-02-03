@@ -3,18 +3,29 @@
   display: flex;
   flex-direction: column;
 
+  .filter_error {
+    width: 100%;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+  }
+
   .toggle_filter_button {
     margin-top: 10px;
     margin-bottom: 23px;
 
     span {
-  font-size: 1.5rem;
+      font-size: 1.5rem;
       color: silver;
       font-style: italic;
       letter-spacing: .2rem;
     }
   }
-  ::ng-deep.mdc-text-field--filled, .color_silver{
+
+  ::ng-deep.mdc-text-field--filled, .color_silver {
     background-color: silver;
   }
 

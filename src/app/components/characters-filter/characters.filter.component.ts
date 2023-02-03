@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 
-import {ICharacterFilter} from "../../interfaces";
+import {IPageError} from "../../interfaces";
 import {QueryParamsService, TotalService} from "../../services";
 
 @Component({
@@ -15,8 +15,9 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   name: boolean = false;
   status: boolean = false;
   form: FormGroup;
-  params: ICharacterFilter;
   toggleFilterBlock: boolean = false;
+  errorStatus: boolean = false
+  error: IPageError
 
   constructor(private router: Router,
               private totalService: TotalService,
@@ -40,21 +41,29 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    this.activatedRoute.queryParams.subscribe(({page, name, status, species, type, gender}) => {
-      this.form = new FormGroup({
-        name: new FormControl(name),
-        status: new FormControl(status),
-        species: new FormControl(species),
-        type: new FormControl(type),
-        gender: new FormControl(gender),
+    this.activatedRoute.queryParams.subscribe(
+      {
+        next: ({name, status, species, type, gender}) => {
+          this.form = new FormGroup({
+            name: new FormControl(name),
+            status: new FormControl(status),
+            species: new FormControl(species),
+            type: new FormControl(type),
+            gender: new FormControl(gender),
+          })
+        },
+        error: (e) => console.log(e)
       })
-    })
   };
 
   submit() {
-    this.params = this.form.value
-    this.router.navigate([], {queryParams: this.params})
-    // this.queryParamsService.setQueryParams(this.form.value)
+    this.errorStatus = false
+    const params = this.getClearData(this.form.value)
+    this.router.navigate([], {queryParams: params})
+      .catch((e) => {
+        this.errorStatus = true
+        this.error = {message: e.error.error, status: e.status}
+      })
   };
 
 
@@ -72,4 +81,14 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
     })
     this.router.navigate(['/characters'])
   }
+
+  getClearData(obj: any) {
+    for (let key in obj) {
+      if (obj[key] === '' || obj[key] === null) {
+        delete obj[key]
+      }
+    }
+    return obj
+  }
+
 }

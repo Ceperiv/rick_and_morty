@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {ICharacterFilter, IEpisodeFilter} from "../../interfaces";
-import {TotalService} from "../../services";
-import {QueryParamsService} from "../../services/query.params.service";
+
+import {IEpisodeFilter, IPageError} from "../../interfaces";
+import {QueryParamsService, TotalService} from "../../services";
 
 @Component({
   selector: 'app-episodes-filter',
@@ -17,6 +17,8 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
   form: FormGroup;
   params: IEpisodeFilter;
   toggleFilterBlock: boolean = false;
+  errorStatus: boolean = false
+  error: IPageError
 
   constructor(private router: Router,
               private totalService: TotalService,
@@ -46,9 +48,13 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
   };
 
   submit() {
+    this.errorStatus = false
     this.params = this.form.value
     this.router.navigate([], {queryParams: this.params})
-    // this.queryParamsService.setQueryParams(this.form.value)
+      .catch((e) => {
+        this.errorStatus = true
+        this.error = {message: e.error.error, status: e.status}
+      })
   };
 
 

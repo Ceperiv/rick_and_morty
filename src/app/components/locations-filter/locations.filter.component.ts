@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 
-import {ILocationFilter} from "../../interfaces";
+import {ILocationFilter, IPageError} from "../../interfaces";
 import {QueryParamsService, TotalService} from "../../services";
 
 @Component({
@@ -16,6 +16,9 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
   form: FormGroup;
   params: ILocationFilter;
   toggleFilterBlock: boolean = false;
+  errorStatus: boolean = false
+  error: IPageError
+
 
   constructor(private router: Router,
               private totalService: TotalService,
@@ -47,8 +50,13 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
   };
 
   submit() {
+    this.errorStatus = false
     this.params = this.form.value
     this.router.navigate([], {queryParams: this.params})
+      .catch((e) => {
+        this.errorStatus = true
+        this.error = {message: e.error.error, status: e.status}
+      })
   };
 
 

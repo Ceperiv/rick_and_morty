@@ -1,5 +1,5 @@
 export interface ICharacterFilter {
-  page?:number | 1,
+  page?:number | '',
   name?:string | '',
   status?:string | '',
   species?:string | '',
