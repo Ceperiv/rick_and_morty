@@ -11,8 +11,5 @@ constructor(private route:ActivatedRoute) {
 }
 
   ngOnInit(): void {
-
   }
-
-
 }

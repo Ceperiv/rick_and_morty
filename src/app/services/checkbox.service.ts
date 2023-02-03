@@ -6,8 +6,8 @@ import {BehaviorSubject, Observable} from "rxjs";
 })
 export class CheckboxService {
 
-  private _isChecked = new BehaviorSubject<boolean>(true)
-  private _isAllChecked = new BehaviorSubject<boolean>(false)
+  private _isChecked = new BehaviorSubject<boolean>(true);
+  private _isAllChecked = new BehaviorSubject<boolean>(false);
 
   disable = {
     isChecked: (): void => {

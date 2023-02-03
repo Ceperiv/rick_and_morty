@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {IEpisode, IPaginated} from "../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
+import {IEpisode, IPaginated} from "../../interfaces";
 import {map} from "rxjs";
+
 import {CheckboxService, MultipleComponentsService} from "../../services";
 
 @Component({

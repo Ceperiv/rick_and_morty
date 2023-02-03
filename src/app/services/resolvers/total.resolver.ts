@@ -41,22 +41,22 @@ export class TotalResolver implements Resolve <IPaginated<ICharacter | IEpisode 
     const dimension = route?.queryParams['dimension'] || '';
 
 
-    this.characterParams = this.getClearData({page, name, status, species, type, gender})
-    this.episodeParams = this.getClearData({page, name, episode})
-    this.locationParams = this.getClearData({page, name, type, dimension})
+    this.characterParams = this.getClearData({page, name, status, species, type, gender});
+    this.episodeParams = this.getClearData({page, name, episode});
+    this.locationParams = this.getClearData({page, name, type, dimension});
 
 
     switch (route.url[0].path) {
       case 'characters':
-        this.queryParamsService.setQueryParams(this.characterParams)
+        this.queryParamsService.setQueryParams(this.characterParams);
         return this.data = this.totalService.getAll.characters(this.characterParams);
         break;
       case 'episodes':
-        this.queryParamsService.setQueryParams(this.episodeParams)
+        this.queryParamsService.setQueryParams(this.episodeParams);
         return this.data = this.totalService.getAll.episodes(this.episodeParams);
         break;
       case 'locations':
-        this.queryParamsService.setQueryParams(this.locationParams)
+        this.queryParamsService.setQueryParams(this.locationParams);
         return this.data = this.totalService.getAll.locations(this.locationParams);
         break;
 

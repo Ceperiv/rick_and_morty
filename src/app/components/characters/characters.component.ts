@@ -2,8 +2,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs";
 
-import {ICharacter, ICountInfo, IPaginated} from "../../interfaces";
-import {CheckboxService, CountInfoService, MultipleComponentsService} from "../../services";
+import {ICharacter, IPaginated} from "../../interfaces";
+import {CheckboxService, MultipleComponentsService} from "../../services";
 
 @Component({
   selector: 'app-characters',
@@ -15,18 +15,16 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   total_pages: number;
   selectedCharactersId: number;
   isVisible: boolean = false;
-  allSelectedIds: Array<number> = []
+  allSelectedIds: Array<number> = [];
 
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
               private router: Router,
-              private checkboxService: CheckboxService,
-              private countInfoService: CountInfoService) {
-    this.cleanList()
+              private checkboxService: CheckboxService) {
+    this.cleanList();
   };
 
   ngOnInit(): void {
-
     this.activatedRoute.data.pipe(
       map(value => value['data'] as IPaginated<ICharacter>)
     ).subscribe((value) => {
@@ -35,8 +33,6 @@ export class CharactersComponent implements OnInit, AfterViewInit {
     })
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
-
-
   };
 
   selected() {
@@ -66,7 +62,5 @@ export class CharactersComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-
   }
-
 }

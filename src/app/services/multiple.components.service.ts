@@ -11,10 +11,10 @@ import {ICharacter, IEpisode, ILocation} from "../interfaces";
 export class MultipleComponentsService {
 
   selectedIds: Array<number> = []
-  private _isEmpty = new BehaviorSubject<boolean>(false)
+  private _isEmpty = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) {
-  }
+  };
 
   setId(id: number): void {
     this.selectedIds.push(id)

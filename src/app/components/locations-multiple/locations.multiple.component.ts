@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {IEpisode, ILocation, IPageError} from "../../interfaces";
-import {MultipleComponentsService} from "../../services";
 import {ActivatedRoute} from "@angular/router";
+
+import {ILocation, IPageError} from "../../interfaces";
+import {MultipleComponentsService} from "../../services";
 
 @Component({
   selector: 'app-locations.multiple',
@@ -16,10 +17,10 @@ export class LocationsMultipleComponent implements OnInit, AfterViewInit {
 
   constructor(private multipleComponentsService: MultipleComponentsService,
               private activatedRoute: ActivatedRoute) {
-  }
+  };
 
   ngOnInit(): void {
-    if (!this.ids){
+    if (!this.ids) {
       this.multipleComponentsService.getComponentsById.locations()
         .subscribe(
           {
@@ -27,13 +28,13 @@ export class LocationsMultipleComponent implements OnInit, AfterViewInit {
               this.locations = value
               this.locations?.map(value => {
                 this.ids.push(value.id)
-              })
+              });
               this.multipleComponentsService.cleanIds()
             },
             error: (e) => console.log(e)
-          })
+          });
     }
-  }
+  };
 
   ngAfterViewInit(): void {
     this.activatedRoute.params.subscribe(({ids}) => {
@@ -47,8 +48,6 @@ export class LocationsMultipleComponent implements OnInit, AfterViewInit {
         this.multipleComponentsService.getComponentsById.locations()
           .subscribe(value => this.locations = value)
       }
-    })
-
-  }
-
+    });
+  };
 }

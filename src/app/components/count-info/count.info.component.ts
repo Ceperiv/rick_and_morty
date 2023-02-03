@@ -12,9 +12,8 @@ export class CountInfoComponent implements  OnInit{
   countInfo: ICountInfo
 
   constructor(private countInfoService:CountInfoService) {
-  }
+  };
   ngOnInit(): void {
     this.countInfoService.getCountInfo().then(value => this.countInfo = value);
-  }
-
+  };
 }

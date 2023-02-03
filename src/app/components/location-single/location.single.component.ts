@@ -12,15 +12,16 @@ import {ILocation, IPageError} from "../../interfaces";
 export class LocationSingleComponent implements OnInit, AfterViewInit {
   @Input()
   singleComponent: ILocation;
+
   error: IPageError;
   id: number;
-  residentsUrls: Array<string> = []
+  residentsUrls: Array<string> = [];
 
   constructor(private singleComponentService: SingleComponentService,
               private activatedRoute: ActivatedRoute,
               private changeDetectorRef: ChangeDetectorRef,
               private totalService: TotalService) {
-  }
+  };
 
   ngOnInit(): void {
     this.singleComponent = this.singleComponentService.getSingleInfo.location()
@@ -30,18 +31,15 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
 
       if (!this.id) {
         this.totalService.getById.location(id).subscribe({
-
           next: (value) => {
             this.singleComponent = value
           },
-
           error: (error) => this.error = {message: error.error.error, status: error.status}
-        })
+        });
       }
-    })
-  }
+    });
+  };
 
   ngAfterViewInit(): void {
-
-  }
+  };
 }

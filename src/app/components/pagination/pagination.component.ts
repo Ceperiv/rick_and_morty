@@ -21,16 +21,14 @@ export class PaginationComponent implements OnInit, AfterViewInit {
   page: number
   params: Observable<IQueryParams>
 
-
   constructor(private activatedRoute: ActivatedRoute,
               private changeDetectorRef: ChangeDetectorRef,
               private router: Router,
               private queryParamsService: QueryParamsService) {
-  }
+  };
 
   ngOnInit(): void {
-
-  }
+  };
 
   ngAfterViewInit(): void {
     this.activatedRoute.queryParams.subscribe(({page}) => {
@@ -41,7 +39,6 @@ export class PaginationComponent implements OnInit, AfterViewInit {
     this.paginator.page.subscribe((page) => {
       this.params = this.queryParamsService.getQueryParams()
       this.router.navigate([], {queryParams: {...this.params, page: page.pageIndex + 1}})
-
-    })
-  }
+    });
+  };
 }

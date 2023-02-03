@@ -20,7 +20,7 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit(): void {
-    if (!this.ids){
+    if (!this.ids) {
       this.multipleComponentsService.getComponentsById.episodes()
         .subscribe(
           {
@@ -28,13 +28,13 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
               this.episodes = value
               this.episodes.map(value => {
                 this.ids.push(value.id)
-              })
+              });
               this.multipleComponentsService.cleanIds()
             },
             error: (e) => console.log(e)
-          })
+          });
     }
-  }
+  };
 
   ngAfterContentInit(): void {
     this.activatedRoute.params.subscribe(({ids}) => {
@@ -48,7 +48,7 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
         this.multipleComponentsService.getComponentsById.episodes()
           .subscribe(value => this.episodes = value)
       }
-    })
-  }
+    });
+  };
 }
 

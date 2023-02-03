@@ -12,10 +12,9 @@ export class MainLayoutsComponent implements OnInit {
   isLoading: boolean
 
   constructor(private loadingService: LoadingService,
-  private router: Router,
-              private countInfoService:CountInfoService) {
-
-  }
+              private router: Router,
+              private countInfoService: CountInfoService) {
+  };
 
   ngOnInit(): void {
     this.countInfoService.loadCountInfo()
@@ -26,6 +25,6 @@ export class MainLayoutsComponent implements OnInit {
       } else if (e instanceof NavigationEnd) {
         this.loadingService.endLoading()
       }
-    })
-  }
+    });
+  };
 }

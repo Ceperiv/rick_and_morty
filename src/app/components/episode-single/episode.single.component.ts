@@ -21,7 +21,7 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
               private activatedRoute: ActivatedRoute,
               private changeDetectorRef: ChangeDetectorRef,
               private totalService: TotalService) {
-  }
+  };
 
   ngOnInit(): void {
     this.singleComponent = this.singleComponentService.getSingleInfo.episode()
@@ -37,12 +37,11 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
           },
 
           error: (error) => this.error = {message: error.error.error, status: error.status}
-        })
+        });
       }
-    })
-  }
+    });
+  };
 
   ngAfterViewInit(): void {
-
-  }
+  };
 }

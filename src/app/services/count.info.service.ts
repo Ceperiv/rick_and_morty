@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 
 import {ICharacter, ICountInfo, IEpisode, ILocation, IPaginated} from "../interfaces";
 import {urls} from "../configs";
-import {filter, interval, map, observable, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'

@@ -18,24 +18,23 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
   params: IEpisodeFilter;
   toggleFilterBlock: boolean = false;
   errorStatus: boolean = false
-  error: IPageError
+  error: IPageError;
 
   constructor(private router: Router,
               private totalService: TotalService,
               private activatedRoute: ActivatedRoute,
               private queryParamsService: QueryParamsService) {
-    this._initForm()
+    this._initForm();
   };
 
   ngOnInit(): void {
-
   };
 
   _initForm(): void {
     this.form = new FormGroup({
       name: new FormControl(''),
       episode: new FormControl(''),
-    })
+    });
   };
 
   ngAfterViewInit(): void {
@@ -43,8 +42,8 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
       this.form = new FormGroup({
         name: new FormControl(name),
         episode: new FormControl(episode),
-      })
-    })
+      });
+    });
   };
 
   submit() {
@@ -54,19 +53,19 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
       .catch((e) => {
         this.errorStatus = true
         this.error = {message: e.error.error, status: e.status}
-      })
+      });
   };
 
 
   toggleFilter() {
     this.toggleFilterBlock = !this.toggleFilterBlock
-  }
+  };
 
   cleanFilter() {
     this.form = new FormGroup({
       name: new FormControl(''),
       episode: new FormControl(''),
-    })
+    });
     this.router.navigate(['/episodes'])
-  }
+  };
 }

@@ -19,7 +19,6 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
   errorStatus: boolean = false
   error: IPageError
 
-
   constructor(private router: Router,
               private totalService: TotalService,
               private activatedRoute: ActivatedRoute,
@@ -28,7 +27,6 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
   };
 
   ngOnInit(): void {
-
   };
 
   _initForm(): void {
@@ -36,7 +34,7 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
       name: new FormControl(''),
       type: new FormControl(''),
       dimension: new FormControl(''),
-    })
+    });
   };
 
   ngAfterViewInit(): void {
@@ -45,8 +43,8 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
         name: new FormControl(name),
         type: new FormControl(type),
         dimension: new FormControl(dimension),
-      })
-    })
+      });
+    });
   };
 
   submit() {
@@ -56,20 +54,20 @@ export class LocationsFilterComponent implements OnInit, AfterViewInit{
       .catch((e) => {
         this.errorStatus = true
         this.error = {message: e.error.error, status: e.status}
-      })
+      });
   };
 
 
   toggleFilter() {
     this.toggleFilterBlock = !this.toggleFilterBlock
-  }
+  };
 
   cleanFilter() {
     this.form = new FormGroup({
       name: new FormControl(''),
       type: new FormControl(''),
       dimension: new FormControl(''),
-    })
+    });
     this.router.navigate(['/episodes'])
-  }
+  };
 }

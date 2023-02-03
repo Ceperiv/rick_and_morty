@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs";
 
 import {ILocation, IPaginated} from "../../interfaces";
-import {CheckboxService, MultipleComponentsService, SingleComponentService} from "../../services";
+import {CheckboxService, MultipleComponentsService} from "../../services";
 
 @Component({
   selector: 'app-locations',
@@ -16,13 +16,12 @@ export class LocationsComponent implements OnInit {
   isVisible: boolean = false;
   allSelectedIds: Array<number> = [];
 
-
   constructor(private activatedRoute: ActivatedRoute,
               private multipleComponentsService: MultipleComponentsService,
               private router: Router,
               private checkboxService: CheckboxService) {
     this.cleanList()
-  }
+  };
 
   ngOnInit(): void {
     this.activatedRoute.data.pipe(
@@ -34,6 +33,7 @@ export class LocationsComponent implements OnInit {
     this.multipleComponentsService.isEmpty()
       .subscribe((value) => this.isVisible = value)
   };
+
   selected() {
     let multipleIds = this.multipleComponentsService.getIds()
     if (multipleIds.length === 1) {
@@ -59,6 +59,5 @@ export class LocationsComponent implements OnInit {
     this.locations.map(value => this.allSelectedIds.push(value.id))
     this.multipleComponentsService.setManyIds(this.allSelectedIds)
   };
-
 }
 

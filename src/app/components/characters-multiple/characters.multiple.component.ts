@@ -18,9 +18,8 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
               private activatedRoute: ActivatedRoute) {
   }
 
-
   ngOnInit(): void {
-    if(!this.ids){
+    if (!this.ids) {
       this.multipleComponentsService.getComponentsById.characters()
         .subscribe(
           {
@@ -28,13 +27,13 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
               this.characters = value
               this.characters.map(value => {
                 this.ids.push(value.id)
-              })
+              });
               this.multipleComponentsService.cleanIds()
             },
             error: (e) => console.log(e)
-          })
+          });
     }
-  }
+  };
 
   ngAfterContentInit(): void {
     this.activatedRoute.params.subscribe(({ids}) => {
@@ -48,6 +47,6 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
         this.multipleComponentsService.getComponentsById.characters()
           .subscribe(value => this.characters = value)
       }
-    })
-  }
+    });
+  };
 }

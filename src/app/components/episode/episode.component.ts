@@ -1,8 +1,13 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 
-import {ICharacter, IEpisode} from "../../interfaces";
+import {IEpisode} from "../../interfaces";
 import {Router} from "@angular/router";
-import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
+import {
+  CheckboxService,
+  MultipleComponentsService,
+  SingleComponentService,
+  TotalService
+} from "../../services";
 
 @Component({
   selector: 'app-episode',
@@ -13,7 +18,7 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
   @Input()
   episode: IEpisode;
 
-  singleEpisode: IEpisode
+  singleEpisode: IEpisode;
   selectedId: number | undefined;
   classActive: boolean;
   panelOpenState: boolean = false;
@@ -24,7 +29,6 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
               private checkboxService: CheckboxService,
               private multipleComponentsService: MultipleComponentsService) {
   };
-
 
   ngOnInit(): void {
     this.checkboxService.isChecked().subscribe(value => {

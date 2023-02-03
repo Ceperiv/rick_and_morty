@@ -25,7 +25,6 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.singleComponent = this.singleComponentService.getSingleInfo.character();
-
   };
 
   ngAfterViewInit(): void {
@@ -36,8 +35,6 @@ export class CharacterSingleComponent implements OnInit, AfterViewInit {
         },
         error: (e) => this.error = {message: e.error.error, status: e.status}
       });
-
     });
-
   };
 }

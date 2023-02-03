@@ -2,16 +2,21 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 import {ILocation} from "../../interfaces";
-import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
+import {
+  CheckboxService,
+  MultipleComponentsService,
+  SingleComponentService,
+  TotalService
+} from "../../services";
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
-export class LocationComponent implements OnInit, AfterViewInit{
+export class LocationComponent implements OnInit, AfterViewInit {
   @Input()
-  location:ILocation
+  location: ILocation
 
   selectedId: number | undefined;
   classActive: boolean;
@@ -40,8 +45,8 @@ export class LocationComponent implements OnInit, AfterViewInit{
         this.classActive = value
       }
     });
-
   };
+
   ngAfterViewInit(): void {
     this.multipleComponentsService.getIds().map((value) => {
       if (value === this.location.id) {
@@ -52,11 +57,11 @@ export class LocationComponent implements OnInit, AfterViewInit{
     });
   };
 
-
-  submit():void{
+  submit(): void {
     this.singleComponentService.setSingleInfo.location(this.location)
     this.router.navigate([`locations/${this.location.id}`])
   };
+
   select() {
     const id = this.location.id;
     if (!this.selectedId) {
@@ -71,7 +76,4 @@ export class LocationComponent implements OnInit, AfterViewInit{
       this.checkboxService.disable.isAllChecked()
     }
   };
-
-
-
 }

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Observable} from "rxjs";
+
 import {IQueryParams} from "../interfaces";
 
 @Injectable({
@@ -7,9 +8,9 @@ import {IQueryParams} from "../interfaces";
 })
 export class QueryParamsService {
 
-  queryParams:Observable<IQueryParams>
+  queryParams: Observable<IQueryParams>
 
-  setQueryParams(params:Observable<IQueryParams> | any): void {
+  setQueryParams(params: Observable<IQueryParams> | any): void {
     this.queryParams = params
   };
 

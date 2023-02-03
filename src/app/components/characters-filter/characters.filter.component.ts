@@ -27,7 +27,6 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
-
   };
 
   _initForm(): void {
@@ -37,7 +36,7 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
       species: new FormControl(''),
       type: new FormControl(''),
       gender: new FormControl(''),
-    })
+    });
   };
 
   ngAfterViewInit(): void {
@@ -50,10 +49,10 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
             species: new FormControl(species),
             type: new FormControl(type),
             gender: new FormControl(gender),
-          })
+          });
         },
         error: (e) => console.log(e)
-      })
+      });
   };
 
   submit() {
@@ -63,9 +62,8 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
       .catch((e) => {
         this.errorStatus = true
         this.error = {message: e.error.error, status: e.status}
-      })
+      });
   };
-
 
   toggleFilter() {
     this.toggleFilterBlock = !this.toggleFilterBlock
@@ -78,9 +76,9 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
       species: new FormControl(''),
       type: new FormControl(''),
       gender: new FormControl(''),
-    })
+    });
     this.router.navigate(['/characters'])
-  }
+  };
 
   getClearData(obj: any) {
     for (let key in obj) {
@@ -89,6 +87,5 @@ export class CharactersFilterComponent implements OnInit, AfterViewInit {
       }
     }
     return obj
-  }
-
+  };
 }
