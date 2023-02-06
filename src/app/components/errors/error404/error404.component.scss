@@ -1,0 +1,19 @@
+.error_404_wrap {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, rgba(39, 36, 59, 1) 0%, rgba(134, 131, 48, 1) 54%, rgba(39, 36, 59, 1) 100%);
+  box-shadow: 12px 0 0 -4px rgba(15, 14, 33, 0.2), -12px 0 0 -4px rgba(15, 14, 33, 0.2);
+
+
+  img {
+    border-radius: 20px;
+  }
+
+}
+
+
