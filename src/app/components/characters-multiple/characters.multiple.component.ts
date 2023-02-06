@@ -30,7 +30,7 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
               });
               this.multipleComponentsService.cleanIds()
             },
-            error: (e) => console.log(e)
+            error: (e) => this.error = {message: e.error.error, status: e.status}
           });
     }
   };
@@ -38,14 +38,18 @@ export class CharactersMultipleComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.activatedRoute.params.subscribe(({ids}) => {
       if (ids.length === 1) {
-        this.error = {message: 'characters/multiple - cannot take one value... example(1,2,4,9)', status: 404}
+        this.error = {message: 'characters/multiple - cannot take one value... example(1,2,4,9)', status: 500}
       }
       if (!this.ids || this.ids.toString() !== ids.toString()) {
         this.ids = []
         this.multipleComponentsService.cleanIds()
         this.multipleComponentsService.setId(ids)
         this.multipleComponentsService.getComponentsById.characters()
-          .subscribe(value => this.characters = value)
+          .subscribe({
+            next: value => {
+              this.characters = value
+            }, error: (e) => this.error = {message: e.error.error, status: e.status}
+          })
       }
     });
   };

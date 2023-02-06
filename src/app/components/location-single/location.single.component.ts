@@ -14,7 +14,6 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
   singleComponent: ILocation;
 
   error: IPageError;
-  id: number;
   residentsUrls: Array<string> = [];
 
   constructor(private singleComponentService: SingleComponentService,
@@ -24,12 +23,14 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
-    this.singleComponent = this.singleComponentService.getSingleInfo.location()
+    if (!this.singleComponent) {
+      this.singleComponent = this.singleComponentService.getSingleInfo.location()
+    }
+  };
 
+  ngAfterViewInit(): void {
     this.activatedRoute.params.subscribe(({id}) => {
-      this.id = this.singleComponent?.id
-
-      if (!this.id) {
+      if (!this.singleComponent || id !== this.singleComponent.id) {
         this.totalService.getById.location(id).subscribe({
           next: (value) => {
             this.singleComponent = value
@@ -38,8 +39,5 @@ export class LocationSingleComponent implements OnInit, AfterViewInit {
         });
       }
     });
-  };
-
-  ngAfterViewInit(): void {
   };
 }

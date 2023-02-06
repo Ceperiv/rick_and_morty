@@ -13,7 +13,6 @@ import {IPageError} from "../../interfaces";
 export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   singleComponent: IEpisode;
   error: IPageError;
-  id: number;
   characterUrls: Array<string> = [];
   panelOpenState: boolean = false;
 
@@ -24,24 +23,21 @@ export class EpisodeSingleComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
-    this.singleComponent = this.singleComponentService.getSingleInfo.episode()
-
-    this.activatedRoute.params.subscribe(({id}) => {
-      this.id = this.singleComponent?.id
-
-      if (!this.id) {
-        this.totalService.getById.episode(id).subscribe({
-
-          next: (value) => {
-            this.singleComponent = value
-          },
-
-          error: (error) => this.error = {message: error.error.error, status: error.status}
-        });
-      }
-    });
+    if (!this.singleComponent) {
+      this.singleComponent = this.singleComponentService.getSingleInfo.episode()
+    }
   };
 
   ngAfterViewInit(): void {
+    this.activatedRoute.params.subscribe(({id}) => {
+      if (!this.singleComponent || id !== this.singleComponent.id) {
+        this.totalService.getById.episode(id).subscribe({
+          next: (value) => {
+            this.singleComponent = value
+          },
+          error: (e) => this.error = {message: e.error.error, status: e.status}
+        });
+      }
+    });
   };
 }
