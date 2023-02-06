@@ -15,20 +15,15 @@ export class CountInfoService {
   }
 
   loadCountInfo(): void {
-
     this.httpClient.get<IPaginated<ICharacter>>(urls.characters).subscribe(value => {
       this.countInfo = Object.assign({...this.countInfo, characters: value.info.count})
-
     });
     this.httpClient.get<IPaginated<IEpisode>>(urls.episodes).subscribe(value => {
       this.countInfo = Object.assign({...this.countInfo, episodes: value.info.count})
-
     });
     this.httpClient.get<IPaginated<ILocation>>(urls.locations).subscribe(value => {
       this.countInfo = Object.assign({...this.countInfo, locations: value.info.count})
-
     });
-
   }
 
 
@@ -39,7 +34,7 @@ export class CountInfoService {
           resolve(this.countInfo)
           clearInterval(interval)
         }
-      }, 1000)
+      }, 500)
     })
     return promise
   }

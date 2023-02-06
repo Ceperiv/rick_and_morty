@@ -8,10 +8,9 @@
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
     <span>Filter</span>
     <span style="margin-left: 10px; color: black">
-      <i *ngIf="!toggleFilterBlock" class="fas fa-arrow-down"></i>
-      <i *ngIf="toggleFilterBlock" class="fas fa-arrow-up"></i>
+      <i *ngIf="!toggleFilterBlock" class="fa-solid fa-caret-down"></i>
+      <i *ngIf="toggleFilterBlock" class="fa-solid fa-caret-up"></i>
     </span>
-      <i class="fas fa-arrow-from-top"></i>
   </button>
 
   <form [formGroup]="form" class="filter_form">
