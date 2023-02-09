@@ -1,26 +1,20 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 import {ILocation} from "../../interfaces";
-import {
-  CheckboxService,
-  MultipleComponentsService,
-  SingleComponentService,
-  TotalService
-} from "../../services";
+import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
 
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss']
 })
-export class LocationComponent implements OnInit, AfterViewInit {
+export class LocationComponent implements OnInit {
   @Input()
   location: ILocation
 
   selectedId: number | undefined;
   classActive: boolean;
-  panelOpenState: boolean = false;
 
   constructor(private router: Router,
               private singleComponentService: SingleComponentService,
@@ -31,7 +25,7 @@ export class LocationComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.checkboxService.isChecked().subscribe(value => {
-      if (value === false) {
+      if (!value) {
         this.selectedId = undefined;
         this.multipleComponentsService.removeId(this.location.id);
         this.multipleComponentsService.cleanIds()
@@ -40,19 +34,13 @@ export class LocationComponent implements OnInit, AfterViewInit {
     });
 
     this.checkboxService.isAllChecked().subscribe(value => {
-      if (value === true) {
-        this.selectedId = this.location.id;
-        this.classActive = value
-      }
-    });
-  };
-
-  ngAfterViewInit(): void {
-    this.multipleComponentsService.getIds().map((value) => {
-      if (value === this.location.id) {
-        this.selectedId = value;
-        this.classActive = true;
-        this.checkboxService.enable.isChecked()
+      if (value) {
+        this.multipleComponentsService.getIds().map(value => {
+          if (this.location.id === value) {
+            this.selectedId = this.location.id;
+            this.classActive = true
+          }
+        })
       }
     });
   };

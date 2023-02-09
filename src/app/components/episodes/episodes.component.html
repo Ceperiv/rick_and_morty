@@ -1,11 +1,8 @@
 <div class="wrap_episodes">
   <main class="main_content">
     <span class="episode_title">Episodes</span>
-    <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
-    <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
-    <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
-
-    <div  class="filter_episodes">
+    <app-select-items [pageItems]="episodes"></app-select-items>
+    <div class="filter_episodes">
       <app-episodes-filter></app-episodes-filter>
       <app-count-info></app-count-info>
     </div>

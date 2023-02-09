@@ -1,25 +1,19 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
-import {
-  CheckboxService,
-  MultipleComponentsService,
-  SingleComponentService,
-  TotalService
-} from "../../services";
 import {ICharacter, IPageError} from "../../interfaces";
+import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
 
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.scss']
 })
-export class CharacterComponent implements OnInit, AfterViewInit {
+export class CharacterComponent implements OnInit {
   @Input()
   character: ICharacter;
   originUrl: string;
   locationUrl: string;
-  episodeUrls: Array<string> = [];
   selectedId: number | undefined;
   classActive: boolean;
   error: IPageError;
@@ -33,7 +27,7 @@ export class CharacterComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.checkboxService.isChecked().subscribe(value => {
-      if (value === false) {
+      if (!value) {
         this.selectedId = undefined;
         this.multipleComponentsService.removeId(this.character.id);
         this.multipleComponentsService.cleanIds()
@@ -41,27 +35,14 @@ export class CharacterComponent implements OnInit, AfterViewInit {
       }
     });
 
-
     this.checkboxService.isAllChecked().subscribe(value => {
-      if (value === true) {
-        this.selectedId = this.character.id;
-        this.classActive = value
-      }
-    });
-
-    const originId = this.character.origin.url.split('/').slice(-1).toString();
-    const locationId = this.character.location.url.split('/').slice(-1).toString();
-
-    this.originUrl = `/locations/${originId}`;
-    this.locationUrl = `/locations/${locationId}`;
-  };
-
-  ngAfterViewInit(): void {
-    this.multipleComponentsService.getIds().map((value) => {
-      if (value === this.character.id) {
-        this.selectedId = value;
-        this.classActive = true;
-        this.checkboxService.enable.isChecked()
+      if (value) {
+        this.multipleComponentsService.getIds().map(value => {
+          if (this.character.id === value) {
+            this.selectedId = this.character.id;
+            this.classActive = true
+          }
+        })
       }
     });
   };

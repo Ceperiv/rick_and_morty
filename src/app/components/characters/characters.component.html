@@ -1,9 +1,7 @@
 <div class="wrap_characters">
   <span class="character_title">Characters</span>
   <main class="main_content">
-    <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
-    <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
-    <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
+    <app-select-items [pageItems]="characters"></app-select-items>
     <div class="filter_characters">
       <app-characters-filter></app-characters-filter>
       <app-count-info></app-count-info>

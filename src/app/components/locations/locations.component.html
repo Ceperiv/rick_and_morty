@@ -1,9 +1,6 @@
 <div class="wrap_locations">
   <span class="location_title">Locations</span>
-  <button *ngIf="isVisible" class="select select_all" (click)="selectAll()">All</button>
-  <button *ngIf="isVisible" class="select" (click)="selected()">select</button>
-  <button *ngIf="isVisible" class="select cleanList" (click)="cleanList()">clean</button>
-
+  <app-select-items [pageItems]="locations"></app-select-items>
   <div class="filter_locations">
     <app-locations-filter></app-locations-filter>
     <app-count-info></app-count-info>
@@ -12,7 +9,6 @@
   <main *ngIf="locations" class="main_locations">
     <app-location *ngFor="let location of locations" [location]="location"></app-location>
   </main>
-
 </div>
 
 <div class="pagination">

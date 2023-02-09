@@ -44,6 +44,7 @@ import { CarouselComponent } from './layouts';
 import { HomeComponent } from './components/home/home.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CountInfoComponent } from './components/count-info/count.info.component';
+import { SelectItemsComponent } from './components/select-items/select.items.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { CountInfoComponent } from './components/count-info/count.info.component
     CarouselComponent,
     HomeComponent,
     CountInfoComponent,
+    SelectItemsComponent,
   ],
     imports: [
         HttpClientModule,

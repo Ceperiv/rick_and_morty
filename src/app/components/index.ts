@@ -16,3 +16,4 @@ export * from './location/location.component';
 export * from './locations/locations.component';
 export * from './location-single/location.single.component';
 export * from './pagination/pagination.component';
+export * from './select-items/select.items.component';

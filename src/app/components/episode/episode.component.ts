@@ -1,24 +1,18 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 import {IEpisode} from "../../interfaces";
-import {Router} from "@angular/router";
-import {
-  CheckboxService,
-  MultipleComponentsService,
-  SingleComponentService,
-  TotalService
-} from "../../services";
+import {CheckboxService, MultipleComponentsService, SingleComponentService, TotalService} from "../../services";
 
 @Component({
   selector: 'app-episode',
   templateUrl: './episode.component.html',
   styleUrls: ['./episode.component.scss']
 })
-export class EpisodeComponent implements OnInit, AfterViewInit {
+export class EpisodeComponent implements OnInit {
   @Input()
   episode: IEpisode;
 
-  singleEpisode: IEpisode;
   selectedId: number | undefined;
   classActive: boolean;
   panelOpenState: boolean = false;
@@ -32,7 +26,7 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.checkboxService.isChecked().subscribe(value => {
-      if (value === false) {
+      if (!value) {
         this.selectedId = undefined;
         this.multipleComponentsService.removeId(this.episode.id);
         this.multipleComponentsService.cleanIds()
@@ -41,19 +35,13 @@ export class EpisodeComponent implements OnInit, AfterViewInit {
     });
 
     this.checkboxService.isAllChecked().subscribe(value => {
-      if (value === true) {
-        this.selectedId = this.episode.id;
-        this.classActive = value
-      }
-    });
-  };
-
-  ngAfterViewInit(): void {
-    this.multipleComponentsService.getIds().map((value) => {
-      if (value === this.episode.id) {
-        this.selectedId = value;
-        this.classActive = true;
-        this.checkboxService.enable.isChecked()
+      if (value) {
+        this.multipleComponentsService.getIds().map(value => {
+          if (this.episode.id === value) {
+            this.selectedId = this.episode.id;
+            this.classActive = true
+          }
+        })
       }
     });
   };
