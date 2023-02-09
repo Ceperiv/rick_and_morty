@@ -8,15 +8,16 @@ import {ICharacter, IEpisode, ILocation} from "../../interfaces";
   templateUrl: './select.items.component.html',
   styleUrls: ['./select.items.component.scss']
 })
-export class SelectItemsComponent implements OnInit{
+export class SelectItemsComponent implements OnInit {
 
   @Input()
   pageItems: ICharacter[] | IEpisode[] | ILocation[]
   isVisible: boolean = false;
   allSelectedIds: Array<number> = [];
-  constructor(private multipleComponentsService:MultipleComponentsService,
-              private router:Router,
-              private checkboxService:CheckboxService) {
+
+  constructor(private multipleComponentsService: MultipleComponentsService,
+              private router: Router,
+              private checkboxService: CheckboxService) {
     this.cleanList()
   }
 
@@ -47,7 +48,11 @@ export class SelectItemsComponent implements OnInit{
 
   selectAll() {
     this.multipleComponentsService.cleanIds()
-    this.pageItems.map(value => this.allSelectedIds.push(value.id))
+    this.pageItems.map(value => {
+      if (!this.allSelectedIds.includes(value.id)) {
+        this.allSelectedIds.push(value.id)
+      }
+    })
     this.multipleComponentsService.setManyIds(this.allSelectedIds)
     this.checkboxService.enable.isAllChecked()
   };
