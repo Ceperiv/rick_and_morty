@@ -33,7 +33,7 @@ export class SelectItemsComponent implements OnInit {
       const url = `${currentUrl}/${multipleIds.toString()}`
       this.router.navigate([url]);
     } else {
-      const multipleUrl = `characters/multiple/${multipleIds.toString()}`;
+      const multipleUrl = `${currentUrl}/multiple/${multipleIds.toString()}`;
       this.router.navigate([multipleUrl]);
       this.checkboxService.disable.isAllChecked()
     }

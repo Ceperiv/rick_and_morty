@@ -38,6 +38,10 @@
     box-shadow: 10px 10px 10px;
   }
 
+  .img_width {
+    width: 150px;
+  }
+
   .checkbox {
     position: absolute;
     left: 2px;
@@ -59,6 +63,12 @@
   .active {
     opacity: 1;
   }
+
+  @media (max-width: 1200px) {
+    .img_width {
+      width: 100%;
+    }
+  }
 }
 
 ::ng-deep.mat-mdc-menu-content {
@@ -68,5 +78,6 @@
 .padding_top {
   padding-top: 10px;
 }
+
 
 

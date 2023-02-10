@@ -5,8 +5,11 @@
   color: silver;
 
   .episode_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    left: 23%;
+    left: 0;
     top: -15px;
     font-size: 50px;
     letter-spacing: 5rem;
@@ -43,7 +46,6 @@
     width: 200px;
     background: #b27241;
   }
-
 }
 
 ::ng-deep.mat-expansion-panel-body {
@@ -51,3 +53,53 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+@media (max-width: 992px) {
+  .wrap_single_episode > .episode_title {
+    font-size: 35px;
+    letter-spacing: 3rem;
+
+  }
+}
+
+@media (max-width: 767px) {
+  .wrap_single_episode {
+    flex-direction: column;
+
+    .episode_title {
+      top: -30px;
+      font-size: 40px;
+      letter-spacing: 2rem;
+    }
+
+    .single_episode_info_1 {
+      margin-top: 40px;
+      width: 100%;
+      padding: 0;
+    }
+
+    .single_episode_info_2 {
+      width: 100%;
+      padding: 0;
+      .buttons_block{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .wrap_single_episode > .episode_title {
+    font-size: 30px;
+    letter-spacing: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wrap_single_episode > .episode_title {
+    font-size: 20px;
+    letter-spacing: 0.8rem;
+  }
+}
+
