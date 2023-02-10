@@ -13,7 +13,6 @@ export class LocationsMultipleComponent implements OnInit, AfterViewInit {
   locations: ILocation[];
   ids: Array<number> = [];
   error: IPageError;
-  panelOpenState: boolean = false;
 
   constructor(private multipleComponentsService: MultipleComponentsService,
               private activatedRoute: ActivatedRoute) {

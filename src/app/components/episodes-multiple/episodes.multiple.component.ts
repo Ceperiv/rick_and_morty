@@ -13,7 +13,6 @@ export class EpisodesMultipleComponent implements OnInit, AfterContentInit {
   episodes: IEpisode[] = [];
   ids: Array<number> = [];
   error: IPageError;
-  panelOpenState: boolean = false;
 
   constructor(private multipleComponentsService: MultipleComponentsService,
               private activatedRoute: ActivatedRoute) {
