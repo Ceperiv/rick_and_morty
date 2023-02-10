@@ -8,8 +8,8 @@
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>
     <span>Filter</span>
     <span style="margin-left: 10px; color: black">
-      <i *ngIf="!toggleFilterBlock" class="fa-solid fa-caret-down"></i>
-      <i *ngIf="toggleFilterBlock" class="fa-solid fa-caret-up"></i>
+      <i style="color: gray" *ngIf="!toggleFilterBlock" class="fa-solid fa-caret-down"></i>
+      <i style="color: gray" *ngIf="toggleFilterBlock" class="fa-solid fa-caret-up"></i>
     </span>
   </button>
 
