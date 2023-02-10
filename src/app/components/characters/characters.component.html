@@ -6,7 +6,7 @@
       <app-characters-filter></app-characters-filter>
       <app-count-info></app-count-info>
     </div>
-    <main *ngIf="characters" class="wrap_characters">
+    <main *ngIf="characters" class="main_characters">
       <app-character *ngFor="let character of characters" [character]="character"></app-character>
     </main>
   </main>

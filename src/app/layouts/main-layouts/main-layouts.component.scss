@@ -72,5 +72,15 @@
       }
     }
   }
+
+  @media (max-width: 350px) {
+    .block_carousel_title {
+      .carousel_title {
+        color: silver;
+        font-size: 1rem;
+        letter-spacing: .3rem;
+      }
+    }
+  }
 }
 

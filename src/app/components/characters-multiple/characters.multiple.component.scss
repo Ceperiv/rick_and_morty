@@ -4,9 +4,12 @@
   flex-wrap: wrap;
   position: relative;
 
-  .character_title{
+  .character_title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    left: 16%;
+    left: 0;
     top: -15px;
     font-size: 50px;
     letter-spacing: 5rem;
@@ -50,6 +53,7 @@
 
       .multiple_character_info {
         padding: 50px 20px;
+
         .character_status {
           display: flex;
 
@@ -66,9 +70,16 @@
           .background_green {
             background: green;
           }
+
           .background_brown {
             background: brown;
           }
+        }
+      }
+
+      @media (max-width: 992px) {
+        .image_info > .image > a > img {
+          width: 180px;
         }
       }
     }
@@ -102,6 +113,57 @@
         a:active {
           color: #332f2f;
         }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .character_title {
+      font-size: 40px;
+      letter-spacing: 4rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .character_title {
+      font-size: 35px;
+      letter-spacing: 3rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .character_title {
+      font-size: 40px;
+      letter-spacing: 2rem;
+      top: -30px;
+    }
+    .character_multiple_container{
+      width: 95%;
+    }
+
+  }
+  @media (max-width: 650px) {
+    .character_title {
+      font-size: 30px;
+      letter-spacing: 1.5rem;
+      top: -30px;
+    }
+  }
+  @media (max-width: 530px) {
+    .character_title {
+      font-size: 30px;
+      letter-spacing: 1rem;
+    }
+  }
+  @media (max-width: 380px) {
+    .character_title {
+      font-size: 20px;
+      letter-spacing: 0.8rem;
+    }
+    .character_multiple_container > .main_multiple_character{
+      flex-direction: column;
+      .image_info > .image > a > img {
+        width: 100%;
       }
     }
   }
