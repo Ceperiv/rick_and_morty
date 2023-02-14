@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 
 import {IEpisodeFilter, IPageError} from "../../interfaces";
-import {QueryParamsService, TotalService} from "../../services";
+import {TotalService} from "../../services";
 
 @Component({
   selector: 'app-episodes-filter',
@@ -22,8 +22,7 @@ export class EpisodesFilterComponent implements OnInit, AfterViewInit {
 
   constructor(private router: Router,
               private totalService: TotalService,
-              private activatedRoute: ActivatedRoute,
-              private queryParamsService: QueryParamsService) {
+              private activatedRoute: ActivatedRoute) {
     this._initForm();
   };
 
