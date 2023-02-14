@@ -3,6 +3,7 @@
   <div *ngIf="errorStatus" class="filter_error">
     <p>{{error.message}}:(</p>
     <p> error: {{error.status}}</p>
+    <button (click)="errorStatus = false" mat-button>close</button>
   </div>
 
   <button (click)="toggleFilter()" class="toggle_filter_button" mat-button>

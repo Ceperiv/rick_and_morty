@@ -4,13 +4,20 @@
   flex-direction: column;
 
   .filter_error {
-    width: 100%;
-    padding-left: 25px;
+    width: auto;
+    height: auto;
+    position: fixed;
+    left: 49%;
+    top:49%;
+    background: antiquewhite;
+    border-radius: 10px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: red;
+    z-index: 11;
   }
 
   .toggle_filter_button {
