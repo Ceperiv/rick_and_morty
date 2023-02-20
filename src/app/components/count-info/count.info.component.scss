@@ -2,10 +2,23 @@
   width: 100%;
   min-height: 80px;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
-  align-items:center;
-  margin-top:20px;
+  align-items: center;
+  margin-top: 20px;
+  background: dimgray;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+
+  .p_clip {
+    position: absolute;
+    left: 8%;
+    top: -10px;
+    color: silver;
+    transform: rotate(-45deg);
+  }
 
   .color_silver {
     color: silver;

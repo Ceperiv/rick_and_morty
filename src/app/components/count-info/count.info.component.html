@@ -1,11 +1,12 @@
 <div *ngIf="countInfo; else loading" class="count_info">
+  <i class="fa-solid fa-paperclip p_clip"></i>
   <p class="color_silver">Characters: {{countInfo.characters}}</p>
   <p class="color_silver">Episodes: {{countInfo.episodes}}</p>
   <p class="color_silver">Locations: {{countInfo.locations}}</p>
 </div>
 
 <ng-template #loading>
-  <div class="count_info">
+  <div class="count_info" style="background: none">
     <mat-progress-bar style="width: 60%" mode="indeterminate"></mat-progress-bar>
   </div>
 </ng-template>
