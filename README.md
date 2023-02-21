@@ -16,7 +16,7 @@ For Display:
 5) git clone https://github.com/Ceperiv/rick_and_morty.git
 6) cd rick_and_morty
 7) ng s -o
-8) 8)Enjoy
+8) Enjoy
 
 <h2>The Rick and Morty</h2>
 </hr>
