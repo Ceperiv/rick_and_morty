@@ -7,6 +7,10 @@
 ![image](https://user-images.githubusercontent.com/99511070/220355732-5861aa5d-f9fa-47e1-bdb0-975aae5591f2.png)
 ![image](https://user-images.githubusercontent.com/99511070/220355937-de025662-7797-4416-81f5-7c851d803dd5.png)
 ![image](https://user-images.githubusercontent.com/99511070/220356531-23cd0974-f999-470e-b0ea-e66db89ca6a9.png)
+![image](https://user-images.githubusercontent.com/99511070/220359540-fed57397-fd99-4e81-aebf-d710c199e9ab.png)
+![image](https://user-images.githubusercontent.com/99511070/220359763-50076bc4-be43-4570-b01e-f260c71e4413.png)
+![image](https://user-images.githubusercontent.com/99511070/220360020-c74856f8-931b-41e5-8cdd-6c63ae9ca08b.png)
+
 
 For Display:
 1) cmd (command line)
