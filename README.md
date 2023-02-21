@@ -1,27 +1,26 @@
 # RickAndMorty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+![image](https://user-images.githubusercontent.com/99511070/220354794-c966b466-c95b-4c49-86db-8d09ab8ed194.png)
+![image](https://user-images.githubusercontent.com/99511070/220354898-033846e8-5b74-48d7-aaca-1f3b87c3bc3e.png)
+![image](https://user-images.githubusercontent.com/99511070/220355103-aa18562f-dee9-4ad7-a58a-0a8314d46b28.png)
+![image](https://user-images.githubusercontent.com/99511070/220355343-0322d2f6-dafc-4710-9ecf-9f60aabd5c4c.png)
+![image](https://user-images.githubusercontent.com/99511070/220355732-5861aa5d-f9fa-47e1-bdb0-975aae5591f2.png)
+![image](https://user-images.githubusercontent.com/99511070/220355937-de025662-7797-4416-81f5-7c851d803dd5.png)
+![image](https://user-images.githubusercontent.com/99511070/220356531-23cd0974-f999-470e-b0ea-e66db89ca6a9.png)
 
-## Development server
+For Display:
+1) cmd (command line)
+2) npm install
+3) npm i -g @angular/cli
+4) npx -package @angular/cli ng
+5) git clone https://github.com/Ceperiv/rick_and_morty.git
+6) cd rick_and_morty
+7) ng s -o
+8) Enjoy
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h2>The Rick and Morty</h2>
+</hr>
+<h4>Project Description: Site for presenting all possible characters and episodes of “The Rick and Morty” sitcom.</h4>
+<h4>Project Role: Frontend developer</h4>
+<h4>Project Team Size: 1 team member</h4>
+<h4>Tools & Technologies: <i>JS/HTML/SCSS/Angular/Angular Material/Bootstrap/Fontawesome</i></h4>
