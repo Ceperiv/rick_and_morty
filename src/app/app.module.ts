@@ -41,10 +41,10 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { LocationsFilterComponent } from './components/locations-filter/locations.filter.component';
 import { LocationsMultipleComponent } from './components/locations-multiple/locations.multiple.component';
 import { CarouselComponent } from './layouts';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { CountInfoComponent } from './components/count-info/count.info.component';
-import { SelectItemsComponent } from './components/select-items/select.items.component';
+import { SelectItemsComponent } from './components';
 
 @NgModule({
   declarations: [

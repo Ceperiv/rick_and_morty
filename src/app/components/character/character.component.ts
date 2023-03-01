@@ -12,8 +12,7 @@ import {CheckboxService, MultipleComponentsService, SingleComponentService, Tota
 export class CharacterComponent implements OnInit {
   @Input()
   character: ICharacter;
-  originUrl: string;
-  locationUrl: string;
+
   selectedId: number | undefined;
   classActive: boolean;
   error: IPageError;
