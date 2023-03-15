@@ -27,13 +27,14 @@ export class SelectItemsComponent implements OnInit {
   }
 
   selected() {
-    const currentUrl = this.router.url
+    const currentUrl = this.router.url.split('?')[0]
+    console.log(currentUrl)
     let multipleIds = this.multipleComponentsService.getIds()
     if (multipleIds.length === 1) {
-      const url = `${currentUrl}/${multipleIds.toString()}`
+      const url = `${currentUrl}/${multipleIds}`
       this.router.navigate([url]);
     } else {
-      const multipleUrl = `${currentUrl}/multiple/${multipleIds.toString()}`;
+      const multipleUrl = `${currentUrl}/multiple/${multipleIds}`;
       this.router.navigate([multipleUrl]);
       this.checkboxService.disable.isAllChecked()
     }
