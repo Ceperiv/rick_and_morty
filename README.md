@@ -15,11 +15,11 @@
 
 For Display:
 1) cmd (command line)
-2) npm install
-3) npm i -g @angular/cli
-4) npx -package @angular/cli ng
-5) git clone https://github.com/Ceperiv/rick_and_morty.git
-6) cd rick_and_morty
+2) git clone https://github.com/Ceperiv/rick_and_morty.git
+3) cd rick_and_morty
+4) npm i -g @angular/cli
+5) npx -package @angular/cli ng
+6) npm install 
 7) ng s -o
 8) Enjoy
 
